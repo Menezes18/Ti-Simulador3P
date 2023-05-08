@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3120d061e238e3e469465647c504cf9a, type: 3}
+  m_Name: Potion Shop
+  m_EditorClassIdentifier: 
+  _items:
+  - ItemData: {fileID: 11400000, guid: bf21a618132b292469ceaaebb820a563, type: 2}
+    Amount: 50
+  - ItemData: {fileID: 11400000, guid: a71471f435f6d9542bc4e4414ed0cac5, type: 2}
+    Amount: 50
+  _maxAllowedGold: 500
+  _sellMarkUp: 1
+  _buyMarkUp: 0.5
