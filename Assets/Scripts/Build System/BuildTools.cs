@@ -21,6 +21,7 @@ public class BuildTools : MonoBehaviour
     private Camera _camera;
 
     [SerializeField] private Building _spawnedBuilding;
+    private Building _targetBuilding;
     
     private void Start()
     {
@@ -40,32 +41,74 @@ public class BuildTools : MonoBehaviour
         var ray = new Ray(_rayOrigin.position, _camera.transform.forward * _rayDistance);
         return Physics.Raycast(ray, out hitInfo, _rayDistance, layerMask);
     }
+    
     private void DeleteModeLogic()
     {
-        if (!IsRayHittingSomething(_deleteModeLayerMask, out RaycastHit hitInfo)) return;
-        if (Mouse.current.leftButton.wasPressedThisFrame) Destroy(hitInfo.collider.gameObject);
-    }
+        if (IsRayHittingSomething(_deleteModeLayerMask, out RaycastHit hitInfo))
+        {
+            var delectedBuilding = hitInfo.collider.gameObject.GetComponentInParent<Building>();
+
+            if(delectedBuilding == null) return;
+            if (_targetBuilding == null) _targetBuilding = delectedBuilding;
+            if(delectedBuilding != _targetBuilding && _targetBuilding.FlaggedForDelete)
+            {
+                _targetBuilding.RemoveDeleteFlag();
+                _targetBuilding = delectedBuilding;
+            }
+
+            if(delectedBuilding == _targetBuilding && !_targetBuilding.FlaggedForDelete)
+            {
+                _targetBuilding.FlagForDelete(_buildingMatNegative);
+            }
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+
+                Destroy(_targetBuilding.gameObject);
+                _targetBuilding = null; 
+
+            }
+
+        }
+        else
+        {
+            if(_targetBuilding != null && _targetBuilding.FlaggedForDelete)
+            {
+                _targetBuilding.RemoveDeleteFlag();
+                _targetBuilding = null;
+            }
+        }
+    
+    }  
+
 
     private void BuildModeLogic()
     {
+
+        if(_targetBuilding != null && _targetBuilding.FlaggedForDelete)
+        {
+            _targetBuilding.RemoveDeleteFlag();
+            _targetBuilding = null;
+        }
         if(_spawnedBuilding == null) return;
 
-        if(IsRayHittingSomething(_buildModeLayerMask, out RaycastHit hitInfo)) 
+        if(!IsRayHittingSomething(_buildModeLayerMask, out RaycastHit hitInfo)) 
         {
          _spawnedBuilding.UpdateMaterial(_buildingMatNegative);  
         }
         else
         {
-        _spawnedBuilding.UpdateMaterial(_buildingMatNegative);  
-        _spawnedBuilding.transform.position = hitInfo.point;
+        _spawnedBuilding.UpdateMaterial(_buildingMatPositive);  
+        var gridPosition = WordGrid.GridPositionFronWorldPosition3D(hitInfo.point, 1f);
+        _spawnedBuilding.transform.position = gridPosition;
+        if (Mouse.current.leftButton.wasPressedThisFrame) 
+        {
+        
+            Building placedBuilding = Instantiate(_spawnedBuilding, gridPosition, Quaternion.identity);
+            placedBuilding.PlaceBuilding();
+
+        }
         }
 
-       if (Mouse.current.leftButton.wasPressedThisFrame) 
-       {
-       
-        Building placedBuilding =  Instantiate(_spawnedBuilding, hitInfo.point, Quaternion.identity);
-        placedBuilding.PlaceBuilding();
-
-       }
     }
 }

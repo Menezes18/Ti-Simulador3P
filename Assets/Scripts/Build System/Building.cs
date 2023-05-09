@@ -15,6 +15,7 @@ public class Building : MonoBehaviour
     {
         _renderer = GetComponentInChildren<Renderer>();
         if (_renderer) _defaultMaterial = _renderer.material;
+        else Debug.Log("Renderer not Found");
 
     }
 
@@ -26,13 +27,15 @@ public class Building : MonoBehaviour
 
     public void PlaceBuilding()
     {
-       
-       UpdateMaterial(_defaultMaterial);
+        _renderer = GetComponentInChildren<Renderer>();
+        if (_renderer) _defaultMaterial = _renderer.material;
+        else Debug.Log("Renderer not Found");
+        UpdateMaterial(_defaultMaterial);
     }
 
-    public void FlagForDelete(Material delelemat)
+    public void FlagForDelete(Material deleleMat)
     {
-        UpdateMaterial(delelemat);
+        UpdateMaterial(deleleMat);
         _flaggedForDelete = true;
 
 
