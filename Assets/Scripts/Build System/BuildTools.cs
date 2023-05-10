@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class BuildTools : MonoBehaviour
 {
-  
+    [SerializeField] private float _rotateSnapAngle = 90f;
     [SerializeField] private float _rayDistance;
     [SerializeField] private LayerMask _buildModeLayerMask;
     [SerializeField] private LayerMask _deleteModeLayerMask;
@@ -22,6 +22,7 @@ public class BuildTools : MonoBehaviour
 
     [SerializeField] private Building _spawnedBuilding;
     private Building _targetBuilding;
+    private Quaternion _lastRotation;
     
     private void Start()
     {
@@ -92,6 +93,12 @@ public class BuildTools : MonoBehaviour
         }
         if(_spawnedBuilding == null) return;
 
+        if(Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            _spawnedBuilding.transform.Rotate(0,_rotateSnapAngle,0); // depois mudar a rotação se for menos ou mais
+            _lastRotation = _spawnedBuilding.transform.rotation;
+        }
+
         if(!IsRayHittingSomething(_buildModeLayerMask, out RaycastHit hitInfo)) 
         {
          _spawnedBuilding.UpdateMaterial(_buildingMatNegative);  
@@ -104,7 +111,7 @@ public class BuildTools : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame) 
         {
         
-            Building placedBuilding = Instantiate(_spawnedBuilding, gridPosition, Quaternion.identity);
+            Building placedBuilding = Instantiate(_spawnedBuilding, gridPosition, _lastRotation);
             placedBuilding.PlaceBuilding();
 
         }
