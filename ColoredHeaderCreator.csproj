@@ -36,9 +36,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Baedrick\Colored Header Creator\Scripts\ColoredHeaderObject.cs" />
-     <Compile Include="Assets\Baedrick\Colored Header Creator\Scripts\ColoredHeaderCreatorSettings.cs" />
-     <None Include="Assets\Baedrick\Colored Header Creator\Scripts\ColoredHeaderCreator.asmdef" />
+     <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\ColoredHeaderObject.cs" />
+     <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\ColoredHeaderCreatorSettings.cs" />
+     <None Include="Assets\Color Game\Colored Header Creator\Scripts\ColoredHeaderCreator.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity\2021.3.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
