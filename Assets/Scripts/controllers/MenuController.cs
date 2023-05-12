@@ -26,6 +26,7 @@ public class MenuController : MonoBehaviour
     {
         panelOptions.SetActive(false);
         panelMenuInicial.SetActive(true);
+        //
 
     }
 
