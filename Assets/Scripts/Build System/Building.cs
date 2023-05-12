@@ -15,6 +15,11 @@ public class Building : MonoBehaviour
 
     private bool _flaggedForDelete;
     public bool FlaggedForDelete => _flaggedForDelete;
+    private bool _isOverlapping;
+
+    public BuildingData AssignedData => _assignedData;
+
+    public bool IsOverlapping => _isOverlapping;
     
     public void Init(BuildingData data)
     {
@@ -39,6 +44,9 @@ public class Building : MonoBehaviour
     {
         _boxCollider.enabled = false;
         if(_colliders != null) _colliders.gameObject.SetActive(true);
+        UpdateMaterial(_defaultMaterial);
+        gameObject.layer = 7;
+        gameObject.name = _assignedData.DisplayName + " - " + transform.position;
     }
 
     public void UpdateMaterial(Material newMaterial)
@@ -60,4 +68,11 @@ public class Building : MonoBehaviour
         _flaggedForDelete = false;
     }
     
+    private void OnTriggerStay(Collider other){
+        _isOverlapping = true;
+    }
+
+    private void OnTriggerExit(Collider other){
+        _isOverlapping = false;
+    }   
 }
