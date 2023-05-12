@@ -35,18 +35,15 @@ public class Building : MonoBehaviour
         if (_colliders != null) _colliders.gameObject.SetActive(false);
     }
 
+    public void PlaceBuilding()
+    {
+        _boxCollider.enabled = false;
+        if(_colliders != null) _colliders.gameObject.SetActive(true);
+    }
+
     public void UpdateMaterial(Material newMaterial)
     {
         if(_renderer.material != newMaterial) _renderer.material = newMaterial;
-    }
-
-
-    public void PlaceBuilding()
-    {
-        _renderer = GetComponentInChildren<Renderer>();
-        if (_renderer) _defaultMaterial = _renderer.material;
-        else Debug.Log("Renderer not Found");
-        UpdateMaterial(_defaultMaterial);
     }
 
     public void FlagForDelete(Material deleleMat)
