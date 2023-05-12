@@ -38,7 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\QuickOutline\Scripts\Outline.cs" />
      <Compile Include="Assets\Scripts\Build System\WordGrid.cs" />
-     <Compile Include="Assets\Scripts\controllers\MenuController.cs" />
+     <Compile Include="Assets\Scripts\controllers\s.cs" />
      <Compile Include="Assets\Scripts\Shop System\ShopItemList.cs" />
      <Compile Include="Assets\Scripts\MenuPause.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\SerializableDictionary.cs" />
@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\CicloDiaeNoite\CicloDiaNoite.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\InventoryUIController.cs" />
      <Compile Include="Assets\Scripts\PlayerMov\AnimatorManager.cs" />
+     <Compile Include="Assets\Scripts\Build System\BuildingData.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\InventorySlot.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\PlayerMov\PlayerLocomotion.cs" />
@@ -90,7 +91,6 @@
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Item Scripts\InventoryItemData.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\MouseItemData.cs" />
-     <Compile Include="Assets\Scripts\Build System\BuildingData.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
