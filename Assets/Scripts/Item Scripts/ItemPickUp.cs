@@ -10,8 +10,7 @@ public class ItemPickUp : MonoBehaviour
     public float PickUpRadius = 1f;
     public InventoryItemData ItemData;
 
-    [SerializeField] private float _rotationSpeed = 20f;
-
+    public bool fisicaRigidbody = false;
     private SphereCollider myCollider;
 
     [SerializeField] private ItemPickUpSaveData itemSaveData;
@@ -31,13 +30,24 @@ public class ItemPickUp : MonoBehaviour
 
     private void Start()
     {
+        //fisicaRigidbody = true;
         id = GetComponent<UniqueID>().ID;
         SaveGameManager.data.activeItems.Add(id, itemSaveData);
     }
 
+    public void Fisica()
+    {
+        if(fisicaRigidbody)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+        
+            rb.isKinematic = true;
+        
+        }
+    }
     private void Update()
     {
-        transform.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime);
+        Fisica();
     }
 
     private void LoadGame(SaveData data)
@@ -68,12 +78,12 @@ public struct ItemPickUpSaveData
 {
     public InventoryItemData ItemData;
     public Vector3 Position;
-    public Quaternion Rotation;
+    
 
     public ItemPickUpSaveData(InventoryItemData _data, Vector3 _position, Quaternion _rotation)
     {
         ItemData = _data;
         Position = _position;
-        Rotation = _rotation;
+
     }
 }

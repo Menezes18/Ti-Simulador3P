@@ -25,10 +25,12 @@ public class HotbarDisplay : StaticInventoryDisplay
 
     public bool teste22 = false;
 
-    
+    private ItemPickUp _itemPickUp;
     private void Awake()
     {
+
         _playerControls = new PlayerControls();
+        _itemPickUp = FindObjectOfType<ItemPickUp>();
     }
 
     protected override void Start()
@@ -85,61 +87,61 @@ public class HotbarDisplay : StaticInventoryDisplay
     private void Hotbar1(InputAction.CallbackContext obj)
     {
         SetIndex(0);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar2(InputAction.CallbackContext obj)
     {
         SetIndex(1);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar3(InputAction.CallbackContext obj)
     {
         SetIndex(2);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar4(InputAction.CallbackContext obj)
     {
         SetIndex(3);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar5(InputAction.CallbackContext obj)
     {
         SetIndex(4);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar6(InputAction.CallbackContext obj)
     {
         SetIndex(5);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar7(InputAction.CallbackContext obj)
     {
         SetIndex(6);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar8(InputAction.CallbackContext obj)
     {
         SetIndex(7);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar9(InputAction.CallbackContext obj)
     {
         SetIndex(8);
-        corno();
+        pegaritem();
     }
 
     private void Hotbar10(InputAction.CallbackContext obj)
     {
         SetIndex(9);
-        corno();
+        pegaritem();
     }
 
     #endregion
@@ -155,18 +157,19 @@ public class HotbarDisplay : StaticInventoryDisplay
     if (_playerControls.Player.MouseWheel.ReadValue<float>() > 0.1f)
     {
         ChangeIndex(1);
-        corno();
+        pegaritem();
     }
     if (_playerControls.Player.MouseWheel.ReadValue<float>() < -0.1f)
     {
         ChangeIndex(-1);
-        corno();
+        pegaritem();
     }
         
     }
 
-    public void corno()
+    public void pegaritem()
     {
+        
 
         Destroy(spawnObject2);
         hasSpawned = true;
@@ -183,7 +186,8 @@ public class HotbarDisplay : StaticInventoryDisplay
         InstantiateItemInHand(itemId);
             hasSpawned = false;
         }
-        //Debug.Log("Nome do item: " + itemName);
+        
+        
         }
         
     }
@@ -204,6 +208,11 @@ public class HotbarDisplay : StaticInventoryDisplay
 
             GameObject spawnedObject = Instantiate(item.ItemPrefab, itemPrefab.transform.position, Quaternion.identity);
             spawnedObject.transform.SetParent(itemPrefab);
+           Rigidbody rb = spawnedObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Destroy(rb);
+            }
 
             spawnObject2 = spawnedObject;
 

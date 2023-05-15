@@ -27,7 +27,6 @@ public class InventoryItemData : ScriptableObject
     {
         Debug.Log($"Using {DisplayName}");
        
-        
     }
 }
 
