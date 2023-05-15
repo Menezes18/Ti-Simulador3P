@@ -15,6 +15,6 @@ MonoBehaviour:
   DisplayName: Arvore
   Icon: {fileID: 21300000, guid: 38f6e375941bbbe4abd6424c1ba7d5a6, type: 3}
   GridSnapSize: 2
-  Prefab: {fileID: 4967865694698727739, guid: 3dd698682cf3b4744bbc2819fd0bcbf5, type: 3}
+  Prefab: {fileID: 1166611805545463122, guid: dba39a2c1641d4246b835eddf1855695, type: 3}
   BuildingSize: {x: 2, y: 6, z: 2}
   PartType: 0
