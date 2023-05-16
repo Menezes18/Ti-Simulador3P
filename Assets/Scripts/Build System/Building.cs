@@ -18,8 +18,11 @@ public class Building : MonoBehaviour
     private bool _isOverlapping;
 
     public BuildingData AssignedData => _assignedData;
+    public BuildTools buildTools;
 
     public bool IsOverlapping => _isOverlapping;
+    
+
     
     public void Init(BuildingData data)
     {
@@ -41,12 +44,14 @@ public class Building : MonoBehaviour
     }
 
     public void PlaceBuilding()
-    {
+    {   
+        BuildTools buildTools = FindObjectOfType<BuildTools>();
         _boxCollider.enabled = false;
         if(_colliders != null) _colliders.gameObject.SetActive(true);
         UpdateMaterial(_defaultMaterial);
         gameObject.layer = 7;
         gameObject.name = _assignedData.DisplayName + " - " + transform.position;
+        //buildTools.buildingAtivar = false;
     }
 
     public void UpdateMaterial(Material newMaterial)

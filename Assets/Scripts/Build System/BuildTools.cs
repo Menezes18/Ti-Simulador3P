@@ -26,14 +26,20 @@ public class BuildTools : MonoBehaviour
     private Quaternion _lastRotation;
 
     public BuildingData Data;
+    public bool buildingAtivar = false;
     
     private void Start()
     {
         _camera = Camera.main;
         ChoosePart(Data);
     }
-
+    public void SetData(BuildingData newData)
+    {
+        Data = newData;
+        ChoosePart(Data);
+    }
     private void ChoosePart(BuildingData data){
+
         if(_deleteModeEnabled){
             if(_targetBuilding != null && _targetBuilding.FlaggedForDelete) _targetBuilding.RemoveDeleteFlag();
             _targetBuilding = null;
@@ -57,9 +63,12 @@ public class BuildTools : MonoBehaviour
 
     private void Update()
     {
+        if(buildingAtivar)
+        {
         if(Keyboard.current.qKey.wasPressedThisFrame) _deleteModeEnabled = !_deleteModeEnabled;
         if(_deleteModeEnabled) DeleteModeLogic();
         else BuildModeLogic();
+        }
     }
 
     private bool IsRayHittingSomething(LayerMask layerMask, out RaycastHit hitInfo)
@@ -119,6 +128,7 @@ public class BuildTools : MonoBehaviour
         if(_spawnedBuilding == null) return;
 
         PositionBuildingPreview();
+        //buildingAtivar = !buildingAtivar;
 
     }
 
@@ -138,10 +148,12 @@ public class BuildTools : MonoBehaviour
         _spawnedBuilding.transform.position = gridPosition;
         if (Mouse.current.leftButton.wasPressedThisFrame && !_spawnedBuilding.IsOverlapping) 
         {
+
             _spawnedBuilding.PlaceBuilding();
             var dataCopy = _spawnedBuilding.AssignedData;
             _spawnedBuilding = null;
             ChoosePart(dataCopy);
+            //buildingAtivar = false;
         }
         }
     }    

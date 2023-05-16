@@ -4,6 +4,13 @@ using UnityEngine;
 using TMPro;
 using System;
 
+public enum Estacao
+{
+    Primavera,
+    Verao,
+    Outono,
+    Inverno
+}
 public class CicloDiaNoite : MonoBehaviour
 {
     [SerializeField] private Transform luzDirecional;
@@ -18,7 +25,7 @@ public class CicloDiaNoite : MonoBehaviour
 
     private int diaAtual;
    // private int diaPorEstacao = 30;
-    private string[] nomeEstacoes = { "Primavera", "Verão", "Outono", "Inverno" };
+    public Estacao estacaoAtual = Estacao.Primavera;
     private int anoAtual = 1850;
     public int estacaoIndex = 0;
 
@@ -36,23 +43,14 @@ public class CicloDiaNoite : MonoBehaviour
             segundos = 0;
             diaAtual++;
 
-            if (diaAtual == 31)
+            if (diaAtual == 5)
             {
-                if(estacaoIndex == 3 && diaAtual == 31)
+                diaAtual = 1;
+                estacaoAtual = (Estacao)(((int)estacaoAtual + 1) % Enum.GetValues(typeof(Estacao)).Length);
+                estadoText.text = estacaoAtual.ToString();
+                if(estacaoAtual == Estacao.Primavera)
                 {
                     anoAtual++;
-                    estacaoIndex = 0;
-                    diaAtual = 1;
-                    estadoText.text = nomeEstacoes[estacaoIndex];
-                   // estacaoAtual = (EstacaoDoAno)estacaoIndex;
-                } 
-                else 
-                {
-                estacaoIndex++;
-                estadoText.text = nomeEstacoes[estacaoIndex];
-               // estacaoAtual = (EstacaoDoAno)estacaoIndex;
-                diaAtual = 1;
-
                 }
             }
 
@@ -80,6 +78,6 @@ public class CicloDiaNoite : MonoBehaviour
 
     private void CalcularAno()
     {
-        anoText.text = diaAtual + "/" + anoAtual;
+        anoText.text = diaAtual + "/" + anoAtual.ToString();
     }
 }
