@@ -22,29 +22,40 @@ public class CicloDiaNoite : MonoBehaviour
 
     private float segundos;
     public float multiplacador;
+    public float soma = 86400f;
 
-    private int diaAtual;
-   // private int diaPorEstacao = 30;
+    public int diaAtual;
+    
     public Estacao estacaoAtual = Estacao.Primavera;
     private int anoAtual = 1850;
-    public int estacaoIndex = 0;
+   // public int estacaoIndex = 0;
+
+    public bool pode2 = false;
+    public int diaTest = 0;
+    
 
     void Start()
     {
         multiplacador = 86400 / duracaoDoDia;
+
     }
 
     void Update()
     {
         segundos += Time.deltaTime * multiplacador;
-        if (segundos >= 86400)
+       
+        if (segundos >= soma)
         {
             
             segundos = 0;
             diaAtual++;
-
-            if (diaAtual == 5)
+            if(pode2)
             {
+                diaTest++;
+            }            
+            if (diaAtual == 8)
+            {
+                
                 diaAtual = 1;
                 estacaoAtual = (Estacao)(((int)estacaoAtual + 1) % Enum.GetValues(typeof(Estacao)).Length);
                 estadoText.text = estacaoAtual.ToString();
@@ -60,10 +71,6 @@ public class CicloDiaNoite : MonoBehaviour
         CalcularHorario();
         CalcularAno();
     }
-
-
-
-
 
     private void ProcessarCeu()
     {

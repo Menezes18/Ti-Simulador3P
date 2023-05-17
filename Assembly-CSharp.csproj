@@ -45,6 +45,7 @@
      <Compile Include="Assets\ColliderScript.cs" />
      <Compile Include="Assets\Scripts\PlayerMov\InputManager.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\SaveGameManager.cs" />
+     <Compile Include="Assets\Scripts\ObjectInstantiator.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\ShopSlotUI.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\InventoryHolder.cs" />
      <Compile Include="Assets\Scripts\Interactor.cs" />
@@ -71,6 +72,8 @@
      <Compile Include="Assets\Scripts\Build System\Building.cs" />
      <Compile Include="Assets\Scripts\Item Scripts\ItemPickUp.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\ReadOnlyAttribute.cs" />
+     <Compile Include="Assets\Scripts\Plant\PlantTrigger.cs" />
+     <Compile Include="Assets\Scripts\Plant\Plant.cs" />
      <Compile Include="Assets\Scripts\Item Scripts\ItemSlot.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\ShopKeeperDisplay.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\InventoryDisplay.cs" />
@@ -92,9 +95,7 @@
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Item Scripts\InventoryItemData.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\MouseItemData.cs" />
-     <Compile Include="Assets\Scripts\ObjectInstantiator.cs" />
-     <Compile Include="Assets\Scripts\Plant\Plant.cs" />
-     <Compile Include="Assets\Scripts\Plant\PlantTrigger.cs" />
+     <Compile Include="Assets\Scripts\Plant\Trigger.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

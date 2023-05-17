@@ -17,7 +17,9 @@ MonoBehaviour:
   quantidadeAgua: 100
   morte: 0
   prefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  tempoPlant: 1000
+  - {fileID: 3068132281202881451, guid: bf23cdac7083a0e47b78a6b5f211363f, type: 3}
+  - {fileID: 7879201802537979122, guid: b253c84cb109a43459325a55edc431b1, type: 3}
+  - {fileID: 6774556778040008242, guid: e1e029f96f0035f4bbdaefb4c1daa1a3, type: 3}
+  dias: 4
+  mortePrefab: {fileID: 6774556778040008242, guid: a68052ca5afe4494293fc85fcee3177b, type: 3}
+  item: {fileID: 0}

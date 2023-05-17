@@ -5,19 +5,20 @@ using UnityEngine;
 public enum TipoEstacao
 {
     Nenhum,
-    Outono, 
-    Inverno, 
+    Outono,
+    Inverno,
     Primavera,
     Verao
 }
+
 public enum Prefabs
 {
     PrefabEstagio1,
     PrefabEstagio2,
-    PrefabEstagio3
-
-
+    PrefabEstagio3,
+    PrefabMorte
 }
+
 [CreateAssetMenu(menuName = "Plant System/Semente")]
 public class Plant : ScriptableObject
 {
@@ -26,19 +27,55 @@ public class Plant : ScriptableObject
     public float quantidadeAgua;
     public bool morte;
     public List<GameObject> prefabs;
-    public float tempoPlant;
+    public int dias;
 
-    public GameObject GetPrefab(int estagio)
+    private GameObject previousPrefab;
+    public GameObject mortePrefab;
+    public GameObject item;
+
+    public GameObject GetPrefab(int estagio, Transform parent)
     {
-        if (estagio >= 1 && estagio <= 3)
+        if (morte)
         {
-            return prefabs[estagio - 1];
-        }
-        else
-        {
-            Debug.Log("teste");
+            Morte(parent);
             return null;
         }
 
+        if (estagio >= 1 && estagio <= 3)
+        {
+            if (previousPrefab != null)
+            {
+                Destroy(previousPrefab);
+            }
+
+            GameObject prefab = prefabs[estagio - 1];
+            GameObject newPrefab = Instantiate(prefab, parent);
+            previousPrefab = newPrefab;
+            return newPrefab;
+        }
+        else
+        {
+            Debug.Log("Estágio inválido");
+            return null;
+        }
+    }
+
+    private void Morte(Transform parent)
+    {
+        if (previousPrefab != null)
+        {
+            Destroy(previousPrefab);
+        }
+
+
+        if (mortePrefab != null)
+        {
+            GameObject newPrefab = Instantiate(mortePrefab, parent);
+            previousPrefab = newPrefab;
+        }
+        else
+        {
+            Debug.Log("Prefab de morte não encontrado.");
+        }
     }
 }
