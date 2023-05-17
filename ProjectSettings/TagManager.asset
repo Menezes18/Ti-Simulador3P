@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Machado
   - Tree
+  - Item
+  - Planto
+  - BuildingArea
+  - ' Farming'
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - Ground
   - Building
   - BuildPreview
-  - 
-  - 
+  - Farming
+  - NomeDaCamadaCorreta
   - 
   - 
   - 

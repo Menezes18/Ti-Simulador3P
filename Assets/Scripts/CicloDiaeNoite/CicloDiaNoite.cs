@@ -4,6 +4,13 @@ using UnityEngine;
 using TMPro;
 using System;
 
+public enum Estacao
+{
+    Primavera,
+    Verao,
+    Outono,
+    Inverno
+}
 public class CicloDiaNoite : MonoBehaviour
 {
     [SerializeField] private Transform luzDirecional;
@@ -15,44 +22,46 @@ public class CicloDiaNoite : MonoBehaviour
 
     private float segundos;
     public float multiplacador;
+    public float soma = 86400f;
 
-    private int diaAtual;
-   // private int diaPorEstacao = 30;
-    private string[] nomeEstacoes = { "Primavera", "Verão", "Outono", "Inverno" };
+    public int diaAtual;
+    
+    public Estacao estacaoAtual = Estacao.Primavera;
     private int anoAtual = 1850;
-    public int estacaoIndex = 0;
+   // public int estacaoIndex = 0;
+
+    public bool pode2 = false;
+    public int diaTest = 0;
+    
 
     void Start()
     {
         multiplacador = 86400 / duracaoDoDia;
+
     }
 
     void Update()
     {
         segundos += Time.deltaTime * multiplacador;
-        if (segundos >= 86400)
+       
+        if (segundos >= soma)
         {
             
             segundos = 0;
             diaAtual++;
-
-            if (diaAtual == 31)
+            if(pode2)
             {
-                if(estacaoIndex == 3 && diaAtual == 31)
+                diaTest++;
+            }            
+            if (diaAtual == 8)
+            {
+                
+                diaAtual = 1;
+                estacaoAtual = (Estacao)(((int)estacaoAtual + 1) % Enum.GetValues(typeof(Estacao)).Length);
+                estadoText.text = estacaoAtual.ToString();
+                if(estacaoAtual == Estacao.Primavera)
                 {
                     anoAtual++;
-                    estacaoIndex = 0;
-                    diaAtual = 1;
-                    estadoText.text = nomeEstacoes[estacaoIndex];
-                   // estacaoAtual = (EstacaoDoAno)estacaoIndex;
-                } 
-                else 
-                {
-                estacaoIndex++;
-                estadoText.text = nomeEstacoes[estacaoIndex];
-               // estacaoAtual = (EstacaoDoAno)estacaoIndex;
-                diaAtual = 1;
-
                 }
             }
 
@@ -62,10 +71,6 @@ public class CicloDiaNoite : MonoBehaviour
         CalcularHorario();
         CalcularAno();
     }
-
-
-
-
 
     private void ProcessarCeu()
     {
@@ -80,6 +85,6 @@ public class CicloDiaNoite : MonoBehaviour
 
     private void CalcularAno()
     {
-        anoText.text = diaAtual + "/" + anoAtual;
+        anoText.text = diaAtual + "/" + anoAtual.ToString();
     }
 }

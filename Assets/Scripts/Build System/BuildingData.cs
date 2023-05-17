@@ -20,7 +20,7 @@ public enum PartType
     Pedra = 1,
     Mobilia = 2
 }
-//
+
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(BuildingData))]

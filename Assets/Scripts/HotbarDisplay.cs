@@ -12,7 +12,8 @@ public class HotbarDisplay : StaticInventoryDisplay
     private int _currentIndex = 0;
     public Database database;
 
-    private PlayerControls _playerControls;
+    private PlayerControls _playerControls; 
+    //
 
     public Transform itemPrefab;
 
