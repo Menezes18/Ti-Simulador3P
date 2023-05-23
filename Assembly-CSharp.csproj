@@ -37,63 +37,63 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\QuickOutline\Scripts\Outline.cs" />
-     <Compile Include="Assets\Scripts\Build System\WordGrid.cs" />
      <Compile Include="Assets\Scripts\controllers\MenuController.cs" />
      <Compile Include="Assets\Scripts\Shop System\ShopItemList.cs" />
      <Compile Include="Assets\Scripts\Interfaces\MenuPause.cs" />
+     <Compile Include="Assets\Scripts\SaveLoad\SaveGameManager.cs" />
+     <Compile Include="Assets\Scripts\Inventory Scripts\InventoryHolder.cs" />
+     <Compile Include="Assets\Scripts\Plant\Trigger.cs" />
+     <Compile Include="Assets\Scripts\Item Scripts\Database.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\UIController.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\InventoryUIController.cs" />
+     <Compile Include="Assets\Scripts\PlayerMov\AnimatorManager.cs" />
+     <Compile Include="Assets\Scripts\Inventory Scripts\InventorySlot.cs" />
+     <Compile Include="Assets\Scripts\Build System\BuildingData.cs" />
+     <Compile Include="Assets\Scripts\DayNight\ClockManager.cs" />
+     <Compile Include="Assets\Scripts\Inventory Scripts\HotbarDisplay.cs" />
+     <Compile Include="Assets\Scripts\PlayerMov\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\arvore\RayCast.cs" />
+     <Compile Include="Assets\Scripts\Shop System\ShopKeeper.cs" />
+     <Compile Include="Assets\Scripts\SaveLoad\ReadOnlyAttribute.cs" />
+     <Compile Include="Assets\Scripts\Plant\PlantTrigger.cs" />
+     <Compile Include="Assets\Scripts\Item Scripts\ItemSlot.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\ShopKeeperDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\InventoryDisplay.cs" />
+     <Compile Include="Assets\Scripts\PlayerMov\CameraManager.cs" />
+     <Compile Include="Assets\Scripts\OutlineScripts\OutlineObject.cs" />
+     <Compile Include="Assets\Scripts\Inventory Scripts\PlayerInventoryHolder.cs" />
+     <Compile Include="Assets\Scripts\SaveLoad\SaveLoad.cs" />
+     <Compile Include="Assets\Scripts\Inventory Scripts\HotbarSelector.cs" />
+     <Compile Include="Assets\Scripts\Inventory Scripts\MouseItemData.cs" />
+     <Compile Include="Assets\Scripts\Build System\WordGrid.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\SerializableDictionary.cs" />
      <Compile Include="Assets\Scripts\PlayerMov\InputManager.cs" />
      <Compile Include="Assets\Scripts\DayNight\TimeManager.cs" />
-     <Compile Include="Assets\Scripts\SaveLoad\SaveGameManager.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\ShopSlotUI.cs" />
-     <Compile Include="Assets\Scripts\Inventory Scripts\InventoryHolder.cs" />
-     <Compile Include="Assets\Scripts\Plant\Trigger.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\Interactor.cs" />
-     <Compile Include="Assets\Scripts\Item Scripts\Database.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\UIController.cs" />
      <Compile Include="Assets\Scripts\CicloDiaeNoite\CicloDiaNoite.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\InventoryUIController.cs" />
-     <Compile Include="Assets\Scripts\PlayerMov\AnimatorManager.cs" />
-     <Compile Include="Assets\Scripts\Build System\BuildingData.cs" />
-     <Compile Include="Assets\Scripts\Inventory Scripts\InventorySlot.cs" />
-     <Compile Include="Assets\Scripts\DayNight\ClockManager.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\PlayerMov\PlayerLocomotion.cs" />
-     <Compile Include="Assets\Scripts\Inventory Scripts\HotbarDisplay.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\DynamicInventoryDisplay.cs" />
      <Compile Include="Assets\Scripts\Shop System\ShopSlot.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\SaveData.cs" />
-     <Compile Include="Assets\Scripts\PlayerMov\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\arvore\RayCast.cs" />
      <Compile Include="Assets\Scripts\Shop System\ShopSystem.cs" />
-     <Compile Include="Assets\Scripts\Shop System\ShopKeeper.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\InventorySlot_UI.cs" />
      <Compile Include="Assets\Scripts\arvore\TreeControler.cs" />
      <Compile Include="Assets\Scripts\Build System\Building.cs" />
      <Compile Include="Assets\Scripts\Item Scripts\ItemPickUp.cs" />
-     <Compile Include="Assets\Scripts\SaveLoad\ReadOnlyAttribute.cs" />
-     <Compile Include="Assets\Scripts\Plant\PlantTrigger.cs" />
      <Compile Include="Assets\Scripts\Plant\Plant.cs" />
-     <Compile Include="Assets\Scripts\Item Scripts\ItemSlot.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\ShopKeeperDisplay.cs" />
-     <Compile Include="Assets\Scripts\UI Scripts\InventoryDisplay.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\StaticInventoryDisplay.cs" />
-     <Compile Include="Assets\Scripts\PlayerMov\CameraManager.cs" />
-     <Compile Include="Assets\Scripts\OutlineScripts\OutlineObject.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\UseItem.cs" />
      <Compile Include="Assets\Scripts\SaveLoad\UniqueID.cs" />
      <Compile Include="Assets\Scripts\Inventory Scripts\ChestInventory.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
-     <Compile Include="Assets\Scripts\Inventory Scripts\PlayerInventoryHolder.cs" />
      <Compile Include="Assets\Scripts\OutlineScripts\MouseSelect.cs" />
-     <Compile Include="Assets\Scripts\SaveLoad\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\ShoppingCartItemUI.cs" />
      <Compile Include="Assets\Scripts\Build System\BuildTools.cs" />
-     <Compile Include="Assets\Scripts\Inventory Scripts\HotbarSelector.cs" />
      <Compile Include="Assets\Scripts\Input\PlayerControls.cs" />
      <Compile Include="Assets\Scripts\PlayerMov\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Item Scripts\InventoryItemData.cs" />
-     <Compile Include="Assets\Scripts\Inventory Scripts\MouseItemData.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -849,6 +849,9 @@
     <Reference Include="Unity.ShaderGraph.Editor">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TerrainTools">
+        <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.TerrainTools.dll</HintPath>
+    </Reference>
     <Reference Include="Cinemachine">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
@@ -863,6 +866,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TerrainTools.Editor">
+        <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
@@ -884,12 +890,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TerrainTools">
-        <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.TerrainTools.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TerrainTools.Editor">
-        <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

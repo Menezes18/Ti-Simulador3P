@@ -19,3 +19,5 @@ MonoBehaviour:
   MaxStackSize: 1
   GoldValue: 10
   ItemPrefab: {fileID: 1786141707429265061, guid: b8e74f3ceb2a6914c9b341099c74c180, type: 3}
+  ItemData: {fileID: 11400000, guid: 8b6b5ba0fd3409e42951a0f739918b7d, type: 2}
+  _building: 1

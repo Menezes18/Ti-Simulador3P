@@ -36,10 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderPreset.cs" />
      <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderCreatorGUI.cs" />
-     <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderCreator.cs" />
      <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderCreatorDisplay.cs" />
+     <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderPreset.cs" />
+     <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderCreator.cs" />
      <Compile Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderCreatorGUIElements.cs" />
      <None Include="Assets\Color Game\Colored Header Creator\Scripts\Editor\ColoredHeaderCreator.Editor.asmdef" />
     <Reference Include="UnityEngine">

@@ -27,12 +27,14 @@ public class BuildTools : MonoBehaviour
 
     public BuildingData Data;
     public bool buildingAtivar = false;
+    public bool semente = false;
     public string objectName;
     
     private void Start()
     {
         _camera = Camera.main;
         ChoosePart(Data);
+        _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
     }
     public void SetData(BuildingData newData)
     {
@@ -95,6 +97,7 @@ public class BuildTools : MonoBehaviour
 
             if(delectedBuilding == _targetBuilding && !_targetBuilding.FlaggedForDelete)
             {
+               
                 _targetBuilding.FlagForDelete(_buildingMatNegative);
             }
 
@@ -122,7 +125,15 @@ private void ReadRaycastObjectNames()
     if (IsRayHittingSomething(_buildModeLayerMask, out RaycastHit hitInfo))
     {
         objectName = hitInfo.collider.gameObject.name;
-        Debug.Log("Objeto olhado: " + objectName);
+        //Debug.Log("Objeto olhado: " + objectName);
+
+        if(objectName == "Plant")
+        {
+             _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+        }else
+        {
+            _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+        }
     }
 }
 
@@ -138,12 +149,12 @@ private void BuildModeLogic()
     if (_spawnedBuilding == null) return;
 
     PositionBuildingPreview();
-    // Resto do código para posicionar o bloco
+   
 }
     private void PositionBuildingPreview()
     {
-        _spawnedBuilding.UpdateMaterial(_spawnedBuilding.IsOverlapping ? _buildingMatNegative : _buildingMatPositive);
-
+       // _spawnedBuilding.UpdateMaterial(_spawnedBuilding.IsOverlapping ? _buildingMatNegative : _buildingMatPositive);
+        
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             _spawnedBuilding.transform.Rotate(0, _rotateSnapAngle, 0);
@@ -157,18 +168,34 @@ private void BuildModeLogic()
            
             if (Mouse.current.leftButton.wasPressedThisFrame && !_spawnedBuilding.IsOverlapping)
             {
-                if (objectName == "Plant"){
+              if(semente)
+              {
+
+               if (objectName == "Plant"){
+                    _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
                     _spawnedBuilding.PlaceBuilding();
                     var dataCopy = _spawnedBuilding.AssignedData;
                    _spawnedBuilding = null;
                     ChoosePart(dataCopy);
-                    buildingAtivar = false;
+                    buildingAtivar = true;
 
                 }
+                else
+                {
+                    _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+                }
+              } 
+              else
+              {
+                 _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+                    _spawnedBuilding.PlaceBuilding();
+                    var dataCopy = _spawnedBuilding.AssignedData;
+                   _spawnedBuilding = null;
+                    ChoosePart(dataCopy);
+                    buildingAtivar = true;
+              }
                 
             }
         }
     }
-
-
 }

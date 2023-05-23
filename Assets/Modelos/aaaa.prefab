@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildTools: {fileID: 0}
-  t: 0
 --- !u!1001 &4769985732384776120
 PrefabInstance:
   m_ObjectHideFlags: 0
