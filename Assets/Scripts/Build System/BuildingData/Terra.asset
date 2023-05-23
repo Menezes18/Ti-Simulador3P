@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43b9388be1ac3e48a151d35b05f8605, type: 3}
+  m_Name: Terra
+  m_EditorClassIdentifier: 
+  DisplayName: TerraArada
+  Icon: {fileID: 21300000, guid: 291ae24be1cf6c348b601b83e43bb4b8, type: 3}
+  GridSnapSize: 0
+  Prefab: {fileID: 6296395606461999034, guid: 6a18c721cc0f3a94cadd4a81187cdf40, type: 3}
+  BuildingSize: {x: 10, y: 0, z: 10}
+  PartType: 0

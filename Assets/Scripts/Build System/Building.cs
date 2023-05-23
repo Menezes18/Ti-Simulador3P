@@ -46,6 +46,11 @@ public class Building : MonoBehaviour
     public void PlaceBuilding()
     {   
         BuildTools buildTools = FindObjectOfType<BuildTools>(); // Encontra o objeto BuildTools na cena.
+         if (_isOverlapping)
+        {
+            Debug.Log("Não é possível colocar o bloco porque está sobreposto a outro bloco.");
+            return;
+        }
         _boxCollider.enabled = false; 
         if (_colliders != null) _colliders.gameObject.SetActive(true); // Ativa o objeto "Colliders", se existir.
         UpdateMaterial(_defaultMaterial); 

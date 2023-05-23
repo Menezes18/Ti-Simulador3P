@@ -1042,6 +1042,9 @@
     <Reference Include="Unity.ShaderGraph.Editor">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TerrainTools">
+        <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.TerrainTools.dll</HintPath>
+    </Reference>
     <Reference Include="Cinemachine">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
@@ -1056,6 +1059,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TerrainTools.Editor">
+        <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
         <HintPath>D:\Create Jogo\Ti-Fazenda3P\Ti-Simulador3P\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
