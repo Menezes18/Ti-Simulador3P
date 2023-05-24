@@ -14,13 +14,13 @@ public enum Estacao
 public class CicloDiaNoite : MonoBehaviour
 {
     [SerializeField] private Transform luzDirecional;
-    [SerializeField] [Tooltip("Duração do dia em segundos")] private int duracaoDoDia;
+    [SerializeField] [Tooltip("Duração do dia em segundos")] public int duracaoDoDia;
     [SerializeField] private TextMeshProUGUI horarioText;
     [SerializeField] private TextMeshProUGUI estadoText;
     [SerializeField] private TextMeshProUGUI anoText;
     //[SerializeField] public EstacaoDoAno estacaoAtual;
 
-    private float segundos;
+    public float segundos;
     public float multiplacador;
     public float soma = 86400f;
 

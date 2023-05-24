@@ -17,6 +17,12 @@ public class PlantTrigger : MonoBehaviour
    public int diasNaEstacao = 1;
    public int dias;
 
+    public float segundos;
+    public float multiplacador;
+    public float soma = 86400f;
+
+    public int idade = 0;
+    public bool idadeciclo = false;
 
     private void Start()
     {
@@ -24,6 +30,7 @@ public class PlantTrigger : MonoBehaviour
       tipoEstacao = plantedPlant.TipoEstacao;
       dias = plantedPlant.dias;
       diasNaEstacao = cicloDiaNoite.diaTest;    
+      multiplacador = 86400 / cicloDiaNoite.duracaoDoDia;
     }
 
    public void Update() 
@@ -33,6 +40,16 @@ public class PlantTrigger : MonoBehaviour
       Atualdias = cicloDiaNoite.diaAtual;
 
       plantaEstagio();
+      
+   }
+
+   private void FixedUpdate()
+   {
+      if(idadeciclo)
+      {
+      ciclodiaPlant();
+
+      }
    }
 
 private bool plantaInstanciada = false;
@@ -45,25 +62,26 @@ public void plantaEstagio()
 {
    if (tipoEstacao.ToString() == estacaoAtual.ToString())
    {
-      cicloDiaNoite.pode2 = true;
-
+      
+      idadeciclo = true;
       if (!plantaInstanciada)
       { 
          diaciclo = dias / 3;
-         if (cicloDiaNoite.diaTest == diaciclo && ciclo1)
+         if (idade == diaciclo && ciclo1)
          {
             plantedPlant.GetPrefab(1, t);
             ciclo1 = false;
             ciclo2 = true;
-         }else if(cicloDiaNoite.diaTest == diaciclo * 2 && ciclo2)
+         }else if(idade == diaciclo * 2 && ciclo2)
          {
             plantedPlant.GetPrefab(2, t);
             ciclo2 = false;
             ciclo3 = true;
-         }else if(cicloDiaNoite.diaTest == dias && ciclo3)
+         }else if(idade == dias && ciclo3)
          {
             plantedPlant.GetPrefab(3, t);
             ciclo3 = false;
+            idadeciclo = false;
          }
 
          
@@ -79,6 +97,16 @@ public void DropItem()
     }
 }
 
+public void ciclodiaPlant()
+{
+   segundos += Time.deltaTime * multiplacador;
+       
+        if (segundos >= soma)
+        {
+            segundos = 0;
+            idade++;
+        }
+}
 
 
 
