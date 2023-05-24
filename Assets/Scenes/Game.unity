@@ -2500,6 +2500,7 @@ MonoBehaviour:
   horarioText: {fileID: 39753448}
   estadoText: {fileID: 199528588}
   anoText: {fileID: 1775864932}
+  segundos: 0
   multiplacador: 0
   soma: 86400
   diaAtual: 0
@@ -4700,6 +4701,11 @@ MonoBehaviour:
   Atualdias: 0
   diasNaEstacao: 0
   dias: 0
+  segundos: 0
+  multiplacador: 0
+  soma: 86400
+  idade: 0
+  idadeciclo: 0
   diaciclo: 0
 --- !u!4 &1931359549
 Transform:
