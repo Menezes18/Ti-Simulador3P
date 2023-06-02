@@ -147,13 +147,50 @@ public class HotbarDisplay : StaticInventoryDisplay
 
     #endregion
 
+    public void ClearSelectedItem()
+    {
+        InventorySlot selectedSlot = slots[_currentIndex].AssignedInventorySlot;
+        
+        if (selectedSlot.ItemData != null)
+        {
+            selectedSlot.RemoveFromStack(1); // Remover 1 unidade do stack do item
+            slots[_currentIndex].UpdateUISlot();
+
+            // Remover o item atualmente instanciado na mão, se houver
+            Destroy(spawnObject2);
+            hasSpawned = true;
+        }
+    }
+    /*
+    public void ClearSelectedItem()
+    {
+
+        InventorySlot selectedSlot = slots[_currentIndex].AssignedInventorySlot;
+
+        if (selectedSlot.ItemData != null)
+        {
+            if (selectedSlot.ItemData.MaxStackSize > 1)
+            {
+                selectedSlot.ItemData.MaxStackSize--; <- Aqui ele vai remover do scripttableobject 
+                slots[_currentIndex].UpdateUISlot();
+            }
+            else
+            {
+                selectedSlot.ClearSlot();
+                slots[_currentIndex].UpdateUISlot();
+            }
+            Destroy(spawnObject2);
+            hasSpawned = true;
+        }
+
+    }
+    */
     private void Update()
     {
     //   if (slots[_currentIndex].AssignedInventorySlot.ItemData == null)
     //     {
     //         Debug.LogWarning("A");
     //     }
-   
     
     if (_playerControls.Player.MouseWheel.ReadValue<float>() > 0.1f)
     {
@@ -231,7 +268,8 @@ public class HotbarDisplay : StaticInventoryDisplay
     
     public void UseItem(InputAction.CallbackContext obj)
     {
-        
+        Debug.Log("1");
+        ClearSelectedItem();
         if (slots[_currentIndex].AssignedInventorySlot.ItemData != null) slots[_currentIndex].AssignedInventorySlot.ItemData.UseItem();
     }
 

@@ -11,7 +11,8 @@ public abstract class ItemSlot : ISerializationCallbackReceiver
 
     public InventoryItemData ItemData => itemData;
     public int StackSize => stackSize;
-    
+
+
     public void ClearSlot() // Clears the slot
     {
         itemData = null;

@@ -19,21 +19,19 @@ public class InventoryItemData : ScriptableObject
     public GameObject ItemPrefab;
     public BuildingData ItemData;
     public bool _building = false;
-    public InventorySlot_UI inventorySlot_UI;
+    public HotbarDisplay hotbarDisplay;
 
     
 
     
 
- public void UseItem()
-{
-    Debug.Log($"Using {DisplayName}");
-    inventorySlot_UI?.ClearSlot();
+public void UseItem()
+{   
+    Debug.Log("2");
+    //Debug.Log($"Using {DisplayName}");
 
-    // Remover o item da hotbar
-    //inventorySlot_UI?.RemoveItemFromHotbar();
-
-
+    //hotbarDisplay.tt();
+    //hotbarDisplay.ClearSelectedItem();
     if (_building) SetDataBuilding();
 }
 
