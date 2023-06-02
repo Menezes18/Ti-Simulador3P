@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class MenuPause : MonoBehaviour
 {
-    public Transform pauseMenu;
+    public GameObject pauseMenu;
 
     void Start()
     {
@@ -19,16 +19,16 @@ public class MenuPause : MonoBehaviour
         {
             if (pauseMenu.gameObject.activeSelf)
             {
-                pauseMenu.gameObject.SetActive(false);
-                Time.timeScale = 0;
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
             }
             else
             {
-                pauseMenu.gameObject.SetActive(true);
-                Time.timeScale = 1;
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
             }
 
-
+            Debug.Log("foi");
         }
     }
 
