@@ -28,11 +28,11 @@ public class InventoryItemData : ScriptableObject
  public void UseItem()
 {
     Debug.Log($"Using {DisplayName}");
+    inventorySlot_UI?.ClearSlot();
 
     // Remover o item da hotbar
     //inventorySlot_UI?.RemoveItemFromHotbar();
 
-    inventorySlot_UI?.ClearSlot();
 
     if (_building) SetDataBuilding();
 }
