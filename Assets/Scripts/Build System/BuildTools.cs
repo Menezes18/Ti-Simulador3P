@@ -29,6 +29,8 @@ public class BuildTools : MonoBehaviour
     public bool buildingAtivar = false;
     public bool semente = false;
     public string objectName;
+
+    public HotbarDisplay _hotbarDisplay;
     
     private void Start()
     {
@@ -178,7 +180,9 @@ private void BuildModeLogic()
                    _spawnedBuilding = null;
                     ChoosePart(dataCopy);
                     buildingAtivar = true;
-
+                    _hotbarDisplay.ClearSelectedItem();
+                    
+                    
                 }
                 else
                 {

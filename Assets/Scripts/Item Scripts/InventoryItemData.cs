@@ -27,7 +27,7 @@ public class InventoryItemData : ScriptableObject
     public void UseItem()
     {   
 
-        //if (_building) SetDataBuilding();
+        if (_building) SetDataBuilding();
     }
 
     public bool buildingUse(bool valor)

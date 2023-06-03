@@ -18,11 +18,16 @@ public class HotbarDisplay : StaticInventoryDisplay
     private ItemPickUp _itemPickUp;
     public BuildingData ItemData;
     public InventoryItemData _ivItemData;
+    public VerificadorBuilding _verificadorBuilding;
+    public BuildTools _buildTools;
 
     private void Awake()
     {
+
         _playerControls = new PlayerControls();
         _itemPickUp = FindObjectOfType<ItemPickUp>();
+        _verificadorBuilding = FindObjectOfType<VerificadorBuilding>();
+        _buildTools = FindObjectOfType<BuildTools>();
     }
 
     protected override void Start()
@@ -160,8 +165,27 @@ public class HotbarDisplay : StaticInventoryDisplay
             ChangeIndex(-1);
             pegaritem();
         }
-    }
+        if (slots[_currentIndex].AssignedInventorySlot.ItemData == null)
+        {
+            _buildTools.buildingAtivar = false;
 
+        }
+        // else if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
+        // {
+        //     itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
+        //     //Debug.Log(itemId);
+        //     _verificadorBuilding.VerificarEnumPreview(itemId);
+        // }
+    }
+    public void FixedUpdate()
+    {
+        if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
+        {
+            itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
+            //Debug.Log(itemId);
+            _verificadorBuilding.VerificarEnumPreview(itemId);
+        }
+    }
     public void pegaritem()
     {
         Destroy(spawnObject2);
@@ -208,12 +232,14 @@ public class HotbarDisplay : StaticInventoryDisplay
     {
         if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
         {   
-            _ivItemData.buildingUse(true);
-            //buildingUse = _ivItemData._building;
+            
             itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
-            //Debug.Log(_ivItemData._building);
             Debug.Log(itemId);
-            //Debug.Log("a");
+            _verificadorBuilding.VerificarEnum(itemId);
+            // _ivItemData.buildingUse(true);
+            // //buildingUse = _ivItemData._building;
+            // //Debug.Log(_ivItemData._building);
+            // //Debug.Log("a");
             
         }
         /*
@@ -227,25 +253,14 @@ public class HotbarDisplay : StaticInventoryDisplay
             ClearSelectedItem();
             if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
             {
-                //slots[_currentIndex].AssignedInventorySlot.ItemData.UseItem();
             }
         }*/
     }
 
     public void SetDataBuilding()
     {
-        BuildTools buildTools = FindObjectOfType<BuildTools>();
-
-        if (buildTools != null)
-        {
-            buildTools.buildingAtivar = true;
-            buildTools.SetData(ItemData);
-            ClearSelectedItem();
-        }
-        else
-        {
-            Debug.LogWarning("BuildTools não encontrado no cenário.");
-        }
+        slots[_currentIndex].AssignedInventorySlot.ItemData.UseItem();
+        //ItemData.SetDataBuilding();
     }
 
     private void ChangeIndex(int direction)

@@ -22,9 +22,10 @@ public class Building : MonoBehaviour
 
     public bool IsOverlapping => _isOverlapping;
 
-    
 
-    
+    public bool t = false;
+
+
     public void Init(BuildingData data)
     {
         _assignedData = data; 
@@ -35,14 +36,16 @@ public class Building : MonoBehaviour
         var rb = gameObject.AddComponent<Rigidbody>();
         rb.isKinematic = true; 
 
+        Debug.LogWarning("Building");
         _graphic = Instantiate(data.Prefab, transform); // Instancia o prefab gráfico do prédio como um filho deste objeto.
+        //_graphic.SetActive(t);
+        
+
         _renderer = _graphic.GetComponentInChildren<Renderer>(); 
         _defaultMaterial = _renderer.material; // Armazena o material padrão do objeto gráfico.
-
         _colliders = _graphic.transform.Find("Colliders"); // Procura por um objeto filho chamado "Colliders".
-        if (_colliders != null) _colliders.gameObject.SetActive(false); // Desativa o objeto "Colliders", se existir.
+        if (_colliders != null) _colliders.gameObject.SetActive(false); // Desativa o objeto "Colliders", se existir. */
     }
-
     public void PlaceBuilding()
     {   
         BuildTools buildTools = FindObjectOfType<BuildTools>(); // Encontra o objeto BuildTools na cena.
@@ -59,6 +62,10 @@ public class Building : MonoBehaviour
        
     }
 
+    public void ativarPreview()
+    {
+        _graphic.SetActive(true);
+    }
 
     public void UpdateMaterial(Material newMaterial)
     {
