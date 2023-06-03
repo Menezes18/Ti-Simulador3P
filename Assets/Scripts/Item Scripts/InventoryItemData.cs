@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 
+
 [CreateAssetMenu(menuName = "Inventory System/Inventory Item")]
 public class InventoryItemData : ScriptableObject
 {
@@ -23,19 +24,20 @@ public class InventoryItemData : ScriptableObject
 
     
 
-    
+    public void UseItem()
+    {   
 
-public void UseItem()
-{   
-    Debug.Log("2");
-    //Debug.Log($"Using {DisplayName}");
+        //if (_building) SetDataBuilding();
+    }
 
-    //hotbarDisplay.tt();
-    //hotbarDisplay.ClearSelectedItem();
-    if (_building) SetDataBuilding();
-}
-
-    
+    public bool buildingUse(bool valor)
+    {
+        if(_building == valor) return true;
+        else{
+        Debug.LogWarning("N é building");
+        return false;
+        }
+    }
 
     public void SetDataBuilding()
     {
