@@ -51,6 +51,7 @@ public class VerificadorBuilding : MonoBehaviour
             _buildBuilding.t = true;
             //_buildBuilding.ativarPreview();
             //_buildBuilding.Init();
+           // _buildBuilding.ativarPreview();
             _buildTools.buildingAtivar = true;
         }
         else
@@ -58,6 +59,7 @@ public class VerificadorBuilding : MonoBehaviour
             // Mostra uma mensagem de debug
             Debug.Log("O número NÃO está presente no enum.");
             
+           // _buildBuilding.DesativarPreview();
             _buildTools.buildingAtivar = false;
             
         }

@@ -13,6 +13,7 @@ public class Building : MonoBehaviour
     private Renderer _renderer;
     private Material _defaultMaterial;
 
+
     private bool _flaggedForDelete;
     public bool FlaggedForDelete => _flaggedForDelete;
     private bool _isOverlapping;
@@ -26,8 +27,10 @@ public class Building : MonoBehaviour
     public bool t = false;
 
 
+
     public void Init(BuildingData data)
     {
+
         _assignedData = data; 
         _boxCollider = GetComponent<BoxCollider>(); 
         _boxCollider.size = _assignedData.BuildingSize; 
@@ -38,13 +41,13 @@ public class Building : MonoBehaviour
 
         Debug.LogWarning("Building");
         _graphic = Instantiate(data.Prefab, transform); // Instancia o prefab gráfico do prédio como um filho deste objeto.
-        //_graphic.SetActive(t);
         
-
         _renderer = _graphic.GetComponentInChildren<Renderer>(); 
         _defaultMaterial = _renderer.material; // Armazena o material padrão do objeto gráfico.
         _colliders = _graphic.transform.Find("Colliders"); // Procura por um objeto filho chamado "Colliders".
         if (_colliders != null) _colliders.gameObject.SetActive(false); // Desativa o objeto "Colliders", se existir. */
+
+        //DesativarPreview();
     }
     public void PlaceBuilding()
     {   
@@ -56,7 +59,8 @@ public class Building : MonoBehaviour
         }
         _boxCollider.enabled = false; 
         if (_colliders != null) _colliders.gameObject.SetActive(true); // Ativa o objeto "Colliders", se existir.
-        UpdateMaterial(_defaultMaterial); 
+        //UpdateMaterial(_defaultMaterial); 
+        UpdateMaterial(buildTools._buildingMatInv);
         gameObject.layer = 7; 
         gameObject.name = _assignedData.DisplayName + " - " + transform.position; // Define o nome do objeto com base no nome do prédio e em sua posição.
        
@@ -65,6 +69,10 @@ public class Building : MonoBehaviour
     public void ativarPreview()
     {
         _graphic.SetActive(true);
+    }
+    public void DesativarPreview()
+    {
+        _graphic.SetActive(false);
     }
 
     public void UpdateMaterial(Material newMaterial)

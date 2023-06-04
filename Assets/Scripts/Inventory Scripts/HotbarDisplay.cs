@@ -21,6 +21,7 @@ public class HotbarDisplay : StaticInventoryDisplay
     public VerificadorBuilding _verificadorBuilding;
     public BuildTools _buildTools;
 
+
     private void Awake()
     {
 
@@ -168,6 +169,7 @@ public class HotbarDisplay : StaticInventoryDisplay
         if (slots[_currentIndex].AssignedInventorySlot.ItemData == null)
         {
             _buildTools.buildingAtivar = false;
+           // _buildBuilding.UpdateMaterial(_buildTools._buildingMatInv);
 
         }
         // else if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)

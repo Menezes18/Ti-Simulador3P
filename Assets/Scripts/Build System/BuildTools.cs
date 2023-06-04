@@ -15,6 +15,7 @@ public class BuildTools : MonoBehaviour
     [SerializeField] private Transform _rayOrigin;
     [SerializeField] private Material _buildingMatPositive;
     [SerializeField] private Material _buildingMatNegative;
+    [SerializeField] public Material _buildingMatInv;
 
 
     private bool _deleteModeEnabled;
@@ -36,7 +37,7 @@ public class BuildTools : MonoBehaviour
     {
         _camera = Camera.main;
         ChoosePart(Data);
-        _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+        _spawnedBuilding.UpdateMaterial(_buildingMatInv);
     }
     public void SetData(BuildingData newData)
     {

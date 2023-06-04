@@ -5281,7 +5281,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6593,6 +6593,7 @@ MonoBehaviour:
   _rayOrigin: {fileID: 2044103017743111377}
   _buildingMatPositive: {fileID: 2100000, guid: c6776a660ceb9a74d9e115480606cad8, type: 2}
   _buildingMatNegative: {fileID: 2100000, guid: 90668817649049549a823b6a20d155dc, type: 2}
+  _buildingMatInv: {fileID: 2100000, guid: 0273e6bd0f9f0e345935fd47949147c3, type: 2}
   _spawnedBuilding: {fileID: 1807472370}
   Data: {fileID: 11400000, guid: 1e10bb172f8f7a242a5108820ab6a51e, type: 2}
   buildingAtivar: 0
