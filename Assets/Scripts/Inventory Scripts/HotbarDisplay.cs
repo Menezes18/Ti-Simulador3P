@@ -168,7 +168,10 @@ public class HotbarDisplay : StaticInventoryDisplay
         }
         if (slots[_currentIndex].AssignedInventorySlot.ItemData == null)
         {
+            _buildTools.invisivel = false;
             _buildTools.buildingAtivar = false;
+            _buildTools.DesativarBox();
+
            // _buildBuilding.UpdateMaterial(_buildTools._buildingMatInv);
 
         }

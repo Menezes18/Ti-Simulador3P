@@ -27,10 +27,10 @@ public class Building : MonoBehaviour
     public bool t = false;
 
 
-
     public void Init(BuildingData data)
     {
 
+    
         _assignedData = data; 
         _boxCollider = GetComponent<BoxCollider>(); 
         _boxCollider.size = _assignedData.BuildingSize; 
@@ -60,24 +60,21 @@ public class Building : MonoBehaviour
         _boxCollider.enabled = false; 
         if (_colliders != null) _colliders.gameObject.SetActive(true); // Ativa o objeto "Colliders", se existir.
         //UpdateMaterial(_defaultMaterial); 
-        UpdateMaterial(buildTools._buildingMatInv);
+        UpdateMaterial(_defaultMaterial);
         gameObject.layer = 7; 
         gameObject.name = _assignedData.DisplayName + " - " + transform.position; // Define o nome do objeto com base no nome do prédio e em sua posição.
+        _graphic.GetComponent<BoxCollider>().isTrigger = true;
        
     }
 
-    public void ativarPreview()
-    {
-        _graphic.SetActive(true);
-    }
-    public void DesativarPreview()
-    {
-        _graphic.SetActive(false);
-    }
 
     public void UpdateMaterial(Material newMaterial)
     {
         if(_renderer.material != newMaterial) _renderer.material = newMaterial;
+    }
+
+    public void BoxCollider()
+    {
     }
 
     public void FlagForDelete(Material deleleMat)

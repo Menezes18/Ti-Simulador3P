@@ -30,6 +30,7 @@ public class VerificadorBuilding : MonoBehaviour
             Debug.Log("O número está presente no enum!");
             _buildTools.buildingAtivar = true;
             _buildBuilding.t = true;
+            
            // _buildBuilding.ativarPreview();
             _hotbarDisplay.SetDataBuilding();
 
@@ -48,17 +49,23 @@ public class VerificadorBuilding : MonoBehaviour
         // Verifica se o número está presente no enum
         if (System.Enum.IsDefined(typeof(Itens), numero))
         {
+            Debug.Log("A");
             _buildBuilding.t = true;
             //_buildBuilding.ativarPreview();
             //_buildBuilding.Init();
            // _buildBuilding.ativarPreview();
+           //TODO: Pensar em outra maneira, estou deixando o material invisivel
+            _buildTools.invisivel = true;
             _buildTools.buildingAtivar = true;
+            _buildTools.AtivarBox();
         }
         else
         {
             // Mostra uma mensagem de debug
             Debug.Log("O número NÃO está presente no enum.");
-            
+            //_buildBuilding._colliders.gameObject.SetActive(false);
+            _buildTools.DesativarBox();
+            _buildTools.invisivel = false;
            // _buildBuilding.DesativarPreview();
             _buildTools.buildingAtivar = false;
             

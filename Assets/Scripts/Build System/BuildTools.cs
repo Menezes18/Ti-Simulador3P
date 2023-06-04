@@ -32,12 +32,16 @@ public class BuildTools : MonoBehaviour
     public string objectName;
 
     public HotbarDisplay _hotbarDisplay;
+
+    public bool invisivel = false;
     
     private void Start()
     {
         _camera = Camera.main;
         ChoosePart(Data);
         _spawnedBuilding.UpdateMaterial(_buildingMatInv);
+
+        
     }
     public void SetData(BuildingData newData)
     {
@@ -61,10 +65,12 @@ public class BuildTools : MonoBehaviour
             layer = _defaultLayerInt,
             name = "Build Preview"
         };
-
+       
         _spawnedBuilding = go.AddComponent<Building>();
         _spawnedBuilding.Init(data);
+       
         _spawnedBuilding.transform.rotation = _lastRotation;
+        
     }
 
     private void Update()
@@ -75,6 +81,21 @@ public class BuildTools : MonoBehaviour
         if(Keyboard.current.qKey.wasPressedThisFrame) _deleteModeEnabled = !_deleteModeEnabled;
         if(_deleteModeEnabled) DeleteModeLogic();
         else BuildModeLogic();
+        }
+    }
+    //TODO: Pensar em outra maneira, pois aqui estou desativando o collider chando o metodo
+    public void DesativarBox()
+    {
+        foreach (BoxCollider childCollider in _spawnedBuilding.GetComponentsInChildren<BoxCollider>())
+        {
+            childCollider.enabled = false;
+        }
+    }
+    public void AtivarBox()
+    {
+        foreach (BoxCollider childCollider in _spawnedBuilding.GetComponentsInChildren<BoxCollider>())
+        {
+            childCollider.enabled = true;
         }
     }
 
@@ -133,10 +154,25 @@ private void ReadRaycastObjectNames()
         if(objectName == "Plant")
         {
              _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+        
         }else
         {
-            _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+            //TODO: Pensar em outra maneira, estou deixando o material invisivel
+            if(invisivel)
+            {
+                
+                _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+            }
+            else
+            {
+            //_targetBuilding.BoxCollider();
+            
+            _spawnedBuilding.UpdateMaterial(_buildingMatInv);
+
+            }
+
         }
+
     }
 }
 
@@ -182,6 +218,7 @@ private void BuildModeLogic()
                     ChoosePart(dataCopy);
                     buildingAtivar = true;
                     _hotbarDisplay.ClearSelectedItem();
+                    Debug.Log("a");
                     
                     
                 }
@@ -192,7 +229,7 @@ private void BuildModeLogic()
               } 
               else
               {
-                 _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+                 _spawnedBuilding.UpdateMaterial(_buildingMatInv);
                     _spawnedBuilding.PlaceBuilding();
                     var dataCopy = _spawnedBuilding.AssignedData;
                    _spawnedBuilding = null;
