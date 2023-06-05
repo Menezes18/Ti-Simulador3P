@@ -26,8 +26,8 @@ public class VerificadorBuilding : MonoBehaviour
         // Verifica se o número está presente no enum
         if (System.Enum.IsDefined(typeof(Itens), numero))
         {
-            // Mostra uma mensagem de debug
-            Debug.Log("O número está presente no enum!");
+
+            //Debug.Log("O número está presente no enum!");
             _buildTools.buildingAtivar = true;
             _buildBuilding.t = true;
             
@@ -37,8 +37,8 @@ public class VerificadorBuilding : MonoBehaviour
         }
         else
         {
-            // Mostra uma mensagem de debug
-            Debug.Log("O número NÃO está presente no enum.");
+
+            //Debug.Log("O número NÃO está presente no enum.");
             _hotbarDisplay.ClearSelectedItem();
             
         }
@@ -47,9 +47,10 @@ public class VerificadorBuilding : MonoBehaviour
     public void VerificarEnumPreview(int numero)
     {
         // Verifica se o número está presente no enum
+        
         if (System.Enum.IsDefined(typeof(Itens), numero))
         {
-            Debug.Log("A");
+            //Debug.Log("A");
             _buildBuilding.t = true;
             //_buildBuilding.ativarPreview();
             //_buildBuilding.Init();
@@ -61,8 +62,8 @@ public class VerificadorBuilding : MonoBehaviour
         }
         else
         {
-            // Mostra uma mensagem de debug
-            Debug.Log("O número NÃO está presente no enum.");
+
+           // Debug.Log("O número NÃO está presente no enum.");
             //_buildBuilding._colliders.gameObject.SetActive(false);
             _buildTools.DesativarBox();
             _buildTools.invisivel = false;

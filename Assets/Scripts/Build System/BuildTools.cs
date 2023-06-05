@@ -153,7 +153,7 @@ private void ReadRaycastObjectNames()
 
         if(objectName == "Plant")
         {
-             _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+            _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
         
         }else
         {

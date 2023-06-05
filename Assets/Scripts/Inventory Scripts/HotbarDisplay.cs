@@ -154,8 +154,27 @@ public class HotbarDisplay : StaticInventoryDisplay
         }
     }
 
+    public void HotbarFUll()
+    {
+        foreach(InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if(slot.ItemData != null)
+            {
+                Debug.Log(slot.ItemData.DisplayName + " " + slot.StackSize);
+
+            }
+        }
+
+
+    }
+
     private void Update()
     {
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            HotbarFUll();
+        }
         if (_playerControls.Player.MouseWheel.ReadValue<float>() > 0.1f)
         {
             ChangeIndex(1);
