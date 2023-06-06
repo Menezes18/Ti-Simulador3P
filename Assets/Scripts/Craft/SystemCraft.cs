@@ -6,7 +6,7 @@ public class SystemCraft : MonoBehaviour
 {
     public HotbarDisplay _hotbarDisplay;
     public Text craftResultText;
-    public Button[] recipeButtons; // Array de botões das receitas
+    public Button[] recipeButtons; 
 
     public CraftingRecipe[] craftingRecipes;
     private ItemRequirement _itemRequirement;
