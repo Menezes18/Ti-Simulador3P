@@ -7,11 +7,14 @@ public abstract class ItemSlot : ISerializationCallbackReceiver
 {
     [NonSerialized] protected InventoryItemData itemData; // Reference to the data
     [SerializeField] protected int _itemID = -1;
+
     [SerializeField] protected int stackSize; // Current stack size - how many of the data do we have?
 
     public InventoryItemData ItemData => itemData;
+
     public int StackSize => stackSize;
-    
+
+
     public void ClearSlot() // Clears the slot
     {
         itemData = null;
@@ -26,6 +29,7 @@ public abstract class ItemSlot : ISerializationCallbackReceiver
         {
             itemData = invSlot.itemData;
             _itemID = itemData.ID;
+           
             stackSize = 0;
             AddToStack(invSlot.stackSize);
         }

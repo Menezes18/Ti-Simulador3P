@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 63ff9d61b39ed4341a96c20c7081aa00
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Vinque
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 251559267ffba5c468697dd1e32ad651, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

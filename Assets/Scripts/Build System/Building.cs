@@ -13,6 +13,7 @@ public class Building : MonoBehaviour
     private Renderer _renderer;
     private Material _defaultMaterial;
 
+
     private bool _flaggedForDelete;
     public bool FlaggedForDelete => _flaggedForDelete;
     private bool _isOverlapping;
@@ -22,11 +23,14 @@ public class Building : MonoBehaviour
 
     public bool IsOverlapping => _isOverlapping;
 
-    
 
-    
+    public bool t = false;
+
+
     public void Init(BuildingData data)
     {
+
+    
         _assignedData = data; 
         _boxCollider = GetComponent<BoxCollider>(); 
         _boxCollider.size = _assignedData.BuildingSize; 
@@ -35,14 +39,16 @@ public class Building : MonoBehaviour
         var rb = gameObject.AddComponent<Rigidbody>();
         rb.isKinematic = true; 
 
+        Debug.LogWarning("Building");
         _graphic = Instantiate(data.Prefab, transform); // Instancia o prefab gráfico do prédio como um filho deste objeto.
+        
         _renderer = _graphic.GetComponentInChildren<Renderer>(); 
         _defaultMaterial = _renderer.material; // Armazena o material padrão do objeto gráfico.
-
         _colliders = _graphic.transform.Find("Colliders"); // Procura por um objeto filho chamado "Colliders".
-        if (_colliders != null) _colliders.gameObject.SetActive(false); // Desativa o objeto "Colliders", se existir.
-    }
+        if (_colliders != null) _colliders.gameObject.SetActive(false); // Desativa o objeto "Colliders", se existir. */
 
+        //DesativarPreview();
+    }
     public void PlaceBuilding()
     {   
         BuildTools buildTools = FindObjectOfType<BuildTools>(); // Encontra o objeto BuildTools na cena.
@@ -53,9 +59,11 @@ public class Building : MonoBehaviour
         }
         _boxCollider.enabled = false; 
         if (_colliders != null) _colliders.gameObject.SetActive(true); // Ativa o objeto "Colliders", se existir.
-        UpdateMaterial(_defaultMaterial); 
+        //UpdateMaterial(_defaultMaterial); 
+        UpdateMaterial(_defaultMaterial);
         gameObject.layer = 7; 
         gameObject.name = _assignedData.DisplayName + " - " + transform.position; // Define o nome do objeto com base no nome do prédio e em sua posição.
+        _graphic.GetComponent<BoxCollider>().isTrigger = true;
        
     }
 
@@ -63,6 +71,10 @@ public class Building : MonoBehaviour
     public void UpdateMaterial(Material newMaterial)
     {
         if(_renderer.material != newMaterial) _renderer.material = newMaterial;
+    }
+
+    public void BoxCollider()
+    {
     }
 
     public void FlagForDelete(Material deleleMat)

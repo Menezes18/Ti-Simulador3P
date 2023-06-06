@@ -20,6 +20,9 @@ public class InventorySystem
 
     public InventorySystem(int size) // Constructor that sets the amount of slots.
     {
+
+        // colocar _gold - 400;
+        // quando for dia 30 de cada mes 
         _gold = 0;
         CreateInventory(size);
         
