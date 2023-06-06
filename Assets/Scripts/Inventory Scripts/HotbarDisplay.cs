@@ -154,7 +154,7 @@ public class HotbarDisplay : StaticInventoryDisplay
         }
     }
 
-    public void HotbarFUll()
+    public void CheckHotbar()
     {
         foreach(InventorySlot_UI slotUI in slots)
         {
@@ -169,12 +169,81 @@ public class HotbarDisplay : StaticInventoryDisplay
 
     }
 
+    public void AddItemToHotbar(InventoryItemData itemData, int quantity)
+    {
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData != null && slot.ItemData == itemData)
+            {
+                // O item já está presente na hotbar, apenas aumenta a quantidade do stack
+                slot.AddToStack(quantity);
+                slotUI.UpdateUISlot();
+                return;
+            }
+        }
+
+        // O item não está presente na hotbar, encontra um slot vazio para adicionar o item
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData == null)
+            {
+                // Encontrou um slot vazio, adiciona o item
+                slot.AssignItem(itemData, quantity);
+                slotUI.UpdateUISlot();
+                return;
+            }
+        }
+
+        // Caso não haja slots vazios disponíveis na hotbar, você pode tomar alguma ação ou exibir uma mensagem de erro.
+        Debug.LogWarning("Não há slots disponíveis na hotbar para adicionar o item.");
+    }
+
+    
+    public void RemoveItem(int itemId, int quantity)
+    {
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData != null && slot.ItemData.ID == itemId)
+            {
+                int removedQuantity = slot.RemoveStack(quantity); // Remove a quantidade especificada do stack do item
+                slotUI.UpdateUISlot();
+
+                // Remove o item atualmente instanciado na mão se a quantidade for zero
+                if (slot.StackSize == 0)
+                {
+                    Destroy(spawnObject2);
+                    hasSpawned = true;
+                }
+                break;
+            }
+        }
+    }
+    public bool CheckItemInHotbar(int itemId)
+    {
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData != null && slot.ItemData.ID == itemId)
+            {
+                return true; // O item foi encontrado na hotbar
+            }
+        }
+        return false; // O item não foi encontrado na hotbar
+    }
+
     private void Update()
     {
-        if (Keyboard.current.fKey.wasPressedThisFrame)
-        {
-            HotbarFUll();
-        }
+        // if (Keyboard.current.fKey.wasPressedThisFrame)
+        // {
+        //     CheckHotbar();
+        // }
+        if (Keyboard.current.mKey.wasPressedThisFrame)
+         {
+              RemoveItem(0, 1);
+         }
         if (_playerControls.Player.MouseWheel.ReadValue<float>() > 0.1f)
         {
             ChangeIndex(1);

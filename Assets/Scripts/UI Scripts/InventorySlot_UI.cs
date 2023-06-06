@@ -24,6 +24,7 @@ public class InventorySlot_UI : MonoBehaviour
         button?.onClick.AddListener(OnUISlotClick);
 
         ParentDisplay = transform.parent.GetComponent<InventoryDisplay>();
+        
     }
 
     public void Init(InventorySlot slot)

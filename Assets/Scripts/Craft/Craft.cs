@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 
 public class Craft : MonoBehaviour
 {
- public Slider handleSlider;
+    public Slider handleSlider;
     public Slider loopSlider;
+    public SystemCraft craft;
 
     private bool isMoving;
     private bool isMovingForward;
@@ -59,28 +59,30 @@ public class Craft : MonoBehaviour
 
             timer += Time.deltaTime;
         }
-        if (Keyboard.current.hKey.wasPressedThisFrame)
+    }
+
+    public void CraftButtonClicked()
+    {
+        int handleValue = (int)handleSlider.value;
+        int loopValue = (int)loopSlider.value;
+
+        if (loopValue == handleValue || loopValue == handleValue - 1 || loopValue == handleValue + 1)
         {
-            if (loopSlider.value == handleSlider.value)
-            {
-                Debug.Log("Acertou!");
-            }
-            else
-            {
-                SetRandomSliderValue(handleSlider);
-                Debug.Log("Errou!");
-            }
+            craft.CraftItem();
+            Debug.Log("Acertou!");
+        }
+        else
+        {
+            SetRandomSliderValue(handleSlider);
+            Debug.Log("Errou!");
+            craft.RemoveItem();
         }
     }
+
 
     void SetRandomSliderValue(Slider slider)
     {
         int randomValue = Random.Range((int)slider.minValue, (int)slider.maxValue + 1);
         slider.value = randomValue;
-    }
-
-    void FixedUpdate()
-    {
-
     }
 }
