@@ -20,7 +20,7 @@ public class InventoryItemData : ScriptableObject
     public GameObject ItemPrefab;
     public BuildingData ItemData;
     public bool _building = false;
-    public HotbarDisplay hotbarDisplay;
+
 
     
 
