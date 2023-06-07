@@ -4,47 +4,39 @@ using System;
 
 public class HotbarDisplay : StaticInventoryDisplay
 {
-    
-
-
-
     private int _maxIndexSize = 9;
     private int _currentIndex = 0;
     public Database database;
-
-    private PlayerControls _playerControls; 
-    //
-
+    private PlayerControls _playerControls;
     public Transform itemPrefab;
-
     private GameObject spawnedObject;
     public GameObject spawnObject2;
-
     public bool hasSpawned = true;
-
     private int itemId = -2;
-
-    public bool teste22 = false;
+    public bool buildingUse = false;
 
     private ItemPickUp _itemPickUp;
+    public BuildingData ItemData;
+    public InventoryItemData _ivItemData;
+    public VerificadorBuilding _verificadorBuilding;
+    public BuildTools _buildTools;
+
+
     private void Awake()
     {
 
         _playerControls = new PlayerControls();
         _itemPickUp = FindObjectOfType<ItemPickUp>();
+        _verificadorBuilding = FindObjectOfType<VerificadorBuilding>();
+        _buildTools = FindObjectOfType<BuildTools>();
     }
 
     protected override void Start()
     {
-        
         base.Start();
-
         _currentIndex = 0;
         _maxIndexSize = slots.Length - 1;
-
         slots[_currentIndex].ToggleHighlight();
-        
-        
     }
 
     protected override void OnEnable()
@@ -147,92 +139,221 @@ public class HotbarDisplay : StaticInventoryDisplay
 
     #endregion
 
+    public void ClearSelectedItem()
+    {
+        InventorySlot selectedSlot = slots[_currentIndex].AssignedInventorySlot;
+
+        if (selectedSlot.ItemData != null)
+        {
+            selectedSlot.RemoveFromStack(1); // Remover 1 unidade do stack do item
+            slots[_currentIndex].UpdateUISlot();
+
+            // Remover o item atualmente instanciado na mão, se houver
+            Destroy(spawnObject2);
+            hasSpawned = true;
+        }
+    }
+
+    public void CheckHotbar()
+    {
+        foreach(InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if(slot.ItemData != null)
+            {
+                Debug.Log(slot.ItemData.DisplayName + " " + slot.StackSize);
+
+            }
+        }
+
+
+    }
+
+    public void AddItemToHotbar(InventoryItemData itemData, int quantity)
+    {
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData != null && slot.ItemData == itemData)
+            {
+                // O item já está presente na hotbar, apenas aumenta a quantidade do stack
+                slot.AddToStack(quantity);
+                slotUI.UpdateUISlot();
+                return;
+            }
+        }
+
+        // O item não está presente na hotbar, encontra um slot vazio para adicionar o item
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData == null)
+            {
+                // Encontrou um slot vazio, adiciona o item
+                slot.AssignItem(itemData, quantity);
+                slotUI.UpdateUISlot();
+                return;
+            }
+        }
+
+        // Caso não haja slots vazios disponíveis na hotbar, você pode tomar alguma ação ou exibir uma mensagem de erro.
+        Debug.LogWarning("Não há slots disponíveis na hotbar para adicionar o item.");
+    }
+
+    
+    public void RemoveItem(int itemId, int quantity)
+    {
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData != null && slot.ItemData.ID == itemId)
+            {
+                int removedQuantity = slot.RemoveStack(quantity); // Remove a quantidade especificada do stack do item
+                slotUI.UpdateUISlot();
+
+                // Remove o item atualmente instanciado na mão se a quantidade for zero
+                if (slot.StackSize == 0)
+                {
+                    Destroy(spawnObject2);
+                    hasSpawned = true;
+                }
+                break;
+            }
+        }
+    }
+    public bool CheckItemInHotbar(int itemId)
+    {
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData != null && slot.ItemData.ID == itemId)
+            {
+                return true; // O item foi encontrado na hotbar
+            }
+        }
+        return false; // O item não foi encontrado na hotbar
+    }
+
     private void Update()
     {
-    //   if (slots[_currentIndex].AssignedInventorySlot.ItemData == null)
-    //     {
-    //         Debug.LogWarning("A");
-    //     }
-   
-    
-    if (_playerControls.Player.MouseWheel.ReadValue<float>() > 0.1f)
-    {
-        ChangeIndex(1);
-        pegaritem();
-    }
-    if (_playerControls.Player.MouseWheel.ReadValue<float>() < -0.1f)
-    {
-        ChangeIndex(-1);
-        pegaritem();
-    }
-        
-    }
+        // if (Keyboard.current.fKey.wasPressedThisFrame)
+        // {
+        //     CheckHotbar();
+        // }
+        if (Keyboard.current.mKey.wasPressedThisFrame)
+         {
+              RemoveItem(0, 1);
+         }
+        if (_playerControls.Player.MouseWheel.ReadValue<float>() > 0.1f)
+        {
+            ChangeIndex(1);
+            pegaritem();
+        }
+        if (_playerControls.Player.MouseWheel.ReadValue<float>() < -0.1f)
+        {
+            ChangeIndex(-1);
+            pegaritem();
+        }
+        if (slots[_currentIndex].AssignedInventorySlot.ItemData == null)
+        {
+            _buildTools.invisivel = false;
+            _buildTools.buildingAtivar = false;
+            _buildTools.DesativarBox();
 
+           // _buildBuilding.UpdateMaterial(_buildTools._buildingMatInv);
+
+        }
+        // else if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
+        // {
+        //     itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
+        //     //Debug.Log(itemId);
+        //     _verificadorBuilding.VerificarEnumPreview(itemId);
+        // }
+    }
+    public void FixedUpdate()
+    {
+        if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
+        {
+            itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
+            //Debug.Log(itemId);
+            _verificadorBuilding.VerificarEnumPreview(itemId);
+        }
+    }
     public void pegaritem()
     {
-        
-
         Destroy(spawnObject2);
         hasSpawned = true;
 
-        
-       if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
-       {
-        
-        itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
-        var db = Resources.Load<Database>("Database");
-        //string itemName = db.GetItemNameById(itemId);
-        if(hasSpawned)
+        if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
         {
-        InstantiateItemInHand(itemId);
-            hasSpawned = false;
+            itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
+            var db = Resources.Load<Database>("Database");
+            if (hasSpawned)
+            {
+                InstantiateItemInHand(itemId);
+                hasSpawned = false;
+            }
         }
-        
-        
-        }
-        
     }
 
     public void InstantiateItemInHand(int itemId)
     {
-        
         var db = Resources.Load<Database>("Database");
         string itemName = db.GetItemNameById(itemId);
 
-        //itemPrefab = Instantiate(itemName, transform.position, Quaternion.identity);
-
-       
         InventoryItemData item = db.GetItem(itemId);
 
         if (item != null)
         {
-
             GameObject spawnedObject = Instantiate(item.ItemPrefab, itemPrefab.transform.position, Quaternion.identity);
             spawnedObject.transform.SetParent(itemPrefab);
-           Rigidbody rb = spawnedObject.GetComponent<Rigidbody>();
+            Rigidbody rb = spawnedObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 Destroy(rb);
             }
 
             spawnObject2 = spawnedObject;
-
-
-
-            //Debug.Log("Item instanciado: " + item.DisplayName);
         }
         else
         {
             Debug.LogWarning("Item não encontrado no banco de dados. ID do item: " + itemPrefab);
         }
-        
     }
 
-    
     public void UseItem(InputAction.CallbackContext obj)
     {
-        
-        if (slots[_currentIndex].AssignedInventorySlot.ItemData != null) slots[_currentIndex].AssignedInventorySlot.ItemData.UseItem();
+        if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
+        {   
+            
+            itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
+            Debug.Log(itemId);
+            _verificadorBuilding.VerificarEnum(itemId);
+            // _ivItemData.buildingUse(true);
+            // //buildingUse = _ivItemData._building;
+            // //Debug.Log(_ivItemData._building);
+            // //Debug.Log("a");
+            
+        }
+        /*
+        if (buildingUse)
+        {
+            Debug.Log("AA");
+            //SetDataBuilding();
+        }
+        else
+        {
+            ClearSelectedItem();
+            if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
+            {
+            }
+        }*/
+    }
+
+    public void SetDataBuilding()
+    {
+        slots[_currentIndex].AssignedInventorySlot.ItemData.UseItem();
+        //ItemData.SetDataBuilding();
     }
 
     private void ChangeIndex(int direction)
@@ -242,18 +363,14 @@ public class HotbarDisplay : StaticInventoryDisplay
 
         if (_currentIndex > _maxIndexSize) _currentIndex = 0;
         if (_currentIndex < 0) _currentIndex = _maxIndexSize;
-        
+
         slots[_currentIndex].ToggleHighlight();
     }
 
     private void SetIndex(int newIndex)
     {
         slots[_currentIndex].ToggleHighlight();
-        if (newIndex < 0) _currentIndex = 0;
-        if (newIndex > _maxIndexSize) _currentIndex = _maxIndexSize;
-        
         _currentIndex = newIndex;
         slots[_currentIndex].ToggleHighlight();
     }
 }
-

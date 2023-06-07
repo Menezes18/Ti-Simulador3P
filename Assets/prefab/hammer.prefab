@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5512156666987115231}
   - component: {fileID: -8115118498611171960}
   - component: {fileID: -1431378661266132153}
-  - component: {fileID: 6570473395424136569}
   m_Layer: 0
   m_Name: hammer
   m_TagString: Untagged
@@ -99,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082e99dbb9d8e9949ab4393da640fdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 
+  _id: bb722de8-fdf2-42a8-bc53-bff292feab4a
 --- !u!135 &-8115118498611171960
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -127,32 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: d6d3a2b511aeab04984e525d44ec9179, type: 2}
-  _rotationSpeed: 0
+  fisicaRigidbody: 0
   itemSaveData:
     ItemData: {fileID: 0}
     Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0, w: 0}
-  interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 58b26aa2-b7e6-4324-a90d-8779b75ddf42
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
---- !u!114 &6570473395424136569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786141707429265061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5679a956bc485d145a22cff850be8ebd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags:
-  - Machado
-  componentName: Machado

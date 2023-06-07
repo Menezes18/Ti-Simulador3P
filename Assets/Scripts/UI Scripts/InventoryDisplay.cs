@@ -76,8 +76,7 @@ public abstract class InventoryDisplay : MonoBehaviour
                 mouseInventoryItem.ClearSlot();
                 return;
             }
-            else if(isSameItem && 
-                !clickedUISlot.AssignedInventorySlot.EnoughRoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize, out int leftInStack))
+            else if(isSameItem && !clickedUISlot.AssignedInventorySlot.EnoughRoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize, out int leftInStack))
             {
                 if (leftInStack < 1) SwapSlots(clickedUISlot); // Stack is full so swap the items.
                 else // Slot is not at max, so take what's need from the mouse inventory.
@@ -105,6 +104,7 @@ public abstract class InventoryDisplay : MonoBehaviour
 
     private void SwapSlots(InventorySlot_UI clickedUISlot)
     {
+        
         var clonedSlot = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItemData, mouseInventoryItem.AssignedInventorySlot.StackSize);
         mouseInventoryItem.ClearSlot();
 

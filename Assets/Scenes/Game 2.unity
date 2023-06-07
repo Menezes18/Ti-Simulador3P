@@ -5590,6 +5590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildTools: {fileID: 0}
+  t: 0
 --- !u!4 &1223684113
 Transform:
   m_ObjectHideFlags: 0
@@ -11892,7 +11893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1673646329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11900,7 +11901,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673646328}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 780e0e1fe2c77d54bac4aef309ebb3f1, type: 3}
   m_Name: 
@@ -12527,6 +12528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildTools: {fileID: 0}
+  t: 0
 --- !u!4 &1871580742
 Transform:
   m_ObjectHideFlags: 0
@@ -12655,7 +12657,11 @@ MonoBehaviour:
   itemPrefab: {fileID: 2044103018353083220}
   spawnObject2: {fileID: 0}
   hasSpawned: 1
-  teste22: 0
+  buildingUse: 0
+  ItemData: {fileID: 0}
+  _ivItemData: {fileID: 0}
+  _verificadorBuilding: {fileID: 0}
+  _buildTools: {fileID: 0}
 --- !u!1 &1883194703
 GameObject:
   m_ObjectHideFlags: 0
@@ -13008,6 +13014,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
   cameraPivot: {fileID: 1883194704}
+  firstPersonCameraPivot: {fileID: 0}
+  thirdPersonCameraPivot: {fileID: 0}
   cameraFollowVelocity: {x: 0, y: 0, z: 0}
   cameraFollowSpeed: 0.2
   cameraLookSpeed: 2
@@ -13019,6 +13027,8 @@ MonoBehaviour:
   cameraSensitivity: 0.1
   isCursorLocked: 1
   inventoryIsOpen: 0
+  isFirstPersonView: 0
+  prefab: {fileID: 0}
 --- !u!4 &1977129979
 Transform:
   m_ObjectHideFlags: 0
@@ -14992,11 +15002,14 @@ MonoBehaviour:
   _rayOrigin: {fileID: 2044103017743111377}
   _buildingMatPositive: {fileID: 2100000, guid: c6776a660ceb9a74d9e115480606cad8, type: 2}
   _buildingMatNegative: {fileID: 2100000, guid: 90668817649049549a823b6a20d155dc, type: 2}
+  _buildingMatInv: {fileID: 0}
   _spawnedBuilding: {fileID: 1807472370}
   Data: {fileID: 11400000, guid: 1e10bb172f8f7a242a5108820ab6a51e, type: 2}
   buildingAtivar: 0
   semente: 1
   objectName: 
+  _hotbarDisplay: {fileID: 0}
+  invisivel: 0
 --- !u!4 &2044103018522254573
 Transform:
   m_ObjectHideFlags: 0

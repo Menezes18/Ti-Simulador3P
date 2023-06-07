@@ -184,7 +184,7 @@ public class ShopKeeperDisplay : MonoBehaviour
         CheckCartVsAvailableGold();
     }
 
-    private void ClearItemPreview()
+    public void ClearItemPreview()
     {
         _itemPreviewSprite.sprite = null;
         _itemPreviewSprite.color = Color.clear;
