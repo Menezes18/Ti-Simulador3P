@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c4e3f5e196ad84cbef2ad2ebe7c428, type: 3}
+  m_Name: Enxada
+  m_EditorClassIdentifier: 
+  ID: 4
+  DisplayName: Enxada
+  Description: 'Enxada.
+
+'
+  Icon: {fileID: -522571837, guid: 7261f47298e72cb4b99842539625c62f, type: 3}
+  MaxStackSize: 1
+  GoldValue: 100
+  ItemPrefab: {fileID: 2079361290821738425, guid: a2555613bf652fe43bbb568fab5db0cb, type: 3}
+  ItemData: {fileID: 11400000, guid: 8b6b5ba0fd3409e42951a0f739918b7d, type: 2}
+  _building: 1
