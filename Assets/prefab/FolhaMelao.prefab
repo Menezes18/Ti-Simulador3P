@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1366629911850685523}
   - component: {fileID: 827973301768242594}
   - component: {fileID: 6351243864513525410}
+  - component: {fileID: 7330888635117611713}
   m_Layer: 0
   m_Name: FolhaMelao
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7330888635117611713
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236122044012943457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4458257090045565515, guid: 1a2d2eda30a61684a80e1c23cc0cdc6a, type: 3}

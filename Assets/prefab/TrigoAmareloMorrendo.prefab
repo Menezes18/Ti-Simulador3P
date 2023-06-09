@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7756942082315833807}
   - component: {fileID: 2106079394485128025}
   - component: {fileID: 2686545751304086021}
+  - component: {fileID: 2028188196900709196}
   m_Layer: 0
   m_Name: TrigoAmareloMorrendo
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2028188196900709196
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054758183945787587}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6363082544117852600, guid: 0121344b07266e945b6d1e0dc03efe8d, type: 3}

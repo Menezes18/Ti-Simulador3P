@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7746297418579442630}
   - component: {fileID: 5540683370470440323}
   - component: {fileID: 3708437504944633066}
+  - component: {fileID: -8587453552963402800}
   m_Layer: 0
   m_Name: SementeMelao
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8587453552963402800
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911618625860597826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7500156586500495854, guid: 1a2d2eda30a61684a80e1c23cc0cdc6a, type: 3}

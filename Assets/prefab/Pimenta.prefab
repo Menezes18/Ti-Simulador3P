@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3058249213064872840}
   - component: {fileID: 8582379283055097380}
   - component: {fileID: 2205808688909096885}
+  - component: {fileID: 917317276387645664}
   m_Layer: 0
   m_Name: Pimenta
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &917317276387645664
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270247437559433456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6111550501507096350, guid: 41dd8156be0eab843aa224ee4c391f39, type: 3}

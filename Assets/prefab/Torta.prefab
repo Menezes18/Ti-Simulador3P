@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1824834526898089126}
   - component: {fileID: 3385799548678955779}
   - component: {fileID: 655328213915867081}
+  - component: {fileID: -1692044544527484779}
   m_Layer: 0
   m_Name: Torta
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1692044544527484779
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304018565465159196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7658692808778467065, guid: bcaab1e0cb1c286428a5eee01eda1a2f, type: 3}
