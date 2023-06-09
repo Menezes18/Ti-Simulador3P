@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2839014434224932894}
   - component: {fileID: 8400863166910629661}
   - component: {fileID: 280896387387917047}
+  - component: {fileID: 7624021559193112496}
   m_Layer: 0
   m_Name: FolhaAbobora
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7624021559193112496
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525005721493879298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7944042791620714334, guid: 4dedf4de5cf7bfd4b839273d2108f73c, type: 3}

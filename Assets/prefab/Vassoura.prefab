@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 708966264356671858}
   - component: {fileID: 2647145310989047477}
   - component: {fileID: 8259113816067196988}
+  - component: {fileID: 7567780512808736991}
   m_Layer: 0
   m_Name: Vassoura
   m_TagString: Untagged
@@ -96,5 +97,19 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -362570680608855877, guid: 08ef4d926bde88c499832f6f7d536fc7, type: 3}
+--- !u!64 &7567780512808736991
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014882253850013196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -362570680608855877, guid: 08ef4d926bde88c499832f6f7d536fc7, type: 3}

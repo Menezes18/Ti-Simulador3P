@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4753299684081377550}
   - component: {fileID: 6401053158900477478}
   - component: {fileID: 8157438037821619057}
+  - component: {fileID: -2689359503773380040}
   m_Layer: 0
   m_Name: Feno
   m_TagString: Untagged
@@ -96,5 +97,19 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8163774152588200723, guid: 08ef4d926bde88c499832f6f7d536fc7, type: 3}
+--- !u!64 &-2689359503773380040
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915696379236264064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8163774152588200723, guid: 08ef4d926bde88c499832f6f7d536fc7, type: 3}

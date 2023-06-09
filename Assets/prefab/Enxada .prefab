@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2266219692344002609}
   - component: {fileID: 64642469521021883}
   - component: {fileID: 5486163072169941281}
+  - component: {fileID: -8459167044217918076}
   m_Layer: 0
   m_Name: 'Enxada '
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8459167044217918076
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655730809617985741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1047348081450410444, guid: 08ef4d926bde88c499832f6f7d536fc7, type: 3}
