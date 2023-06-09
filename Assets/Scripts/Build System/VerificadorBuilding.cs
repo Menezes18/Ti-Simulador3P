@@ -10,10 +10,15 @@ public class VerificadorBuilding : MonoBehaviour
     public Building _buildBuilding;
     enum Itens
     {
-        Numero1 = 1,
-        Numero2 = 2,
-        Numero3 = 0,
-        po = 40
+        enxada = 4,
+        madeira = 7,
+        sementeAbobora = 10,
+        sementeBatata = 12,
+        sementeBeterraba = 14,
+        sementeCenoura = 16,
+        sementeMelao = 18,
+        sementePimenta = 20,
+        sementeTrigo = 22,
     }
 
 

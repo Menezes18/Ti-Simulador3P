@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c4e3f5e196ad84cbef2ad2ebe7c428, type: 3}
   m_Name: PoisonPotionData
   m_EditorClassIdentifier: 
-  ID: 1
+  ID: 3
   DisplayName: Poison Potion
   Description: This is a poison potion!
   Icon: {fileID: 21300000, guid: 2c20a350fa6df234da04dcecb2d01a89, type: 3}
   MaxStackSize: 1
   GoldValue: 10
   ItemPrefab: {fileID: 8399118585057263114, guid: 4d13c10200f51ad44b89de7a4819cc94, type: 3}
+  ItemData: {fileID: 0}
+  _building: 0
