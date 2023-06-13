@@ -19,6 +19,7 @@ public class BuildTools : MonoBehaviour
 
 
     private bool _deleteModeEnabled;
+    [SerializeField] public InventoryItemData itemData;
 
     private Camera _camera;
 
@@ -37,6 +38,7 @@ public class BuildTools : MonoBehaviour
     
     private void Start()
     {
+        InventoryItemData itemData = FindObjectOfType<InventoryItemData>();
         _camera = Camera.main;
         ChoosePart(Data);
         _spawnedBuilding.UpdateMaterial(_buildingMatInv);
@@ -217,10 +219,10 @@ private void BuildModeLogic()
                    _spawnedBuilding = null;
                     ChoosePart(dataCopy);
                     buildingAtivar = true;
-                    _hotbarDisplay.ClearSelectedItem();
+                    itemData.DecreaseDurability(1);
+                    //_hotbarDisplay.ClearSelectedItem();
                     Debug.Log("a");
-                    
-                    
+
                 }
                 else
                 {

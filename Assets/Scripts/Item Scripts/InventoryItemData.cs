@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 
 
@@ -20,10 +21,9 @@ public class InventoryItemData : ScriptableObject
     public GameObject ItemPrefab;
     public BuildingData ItemData;
     public bool _building = false;
-
+    public int durabilidade;
 
     
-
     public void UseItem()
     {   
 
@@ -36,6 +36,16 @@ public class InventoryItemData : ScriptableObject
         else{
         Debug.LogWarning("N é building");
         return false;
+        }
+    }
+    public void DecreaseDurability(int amount)
+    {
+       VerificadorBuilding verificador = FindObjectOfType<VerificadorBuilding>();
+        Debug.Log("a");
+        durabilidade -= amount;
+        if (durabilidade <= 0)
+        {
+            verificador.limpar();
         }
     }
 
@@ -55,6 +65,8 @@ public class InventoryItemData : ScriptableObject
                 }
 
     }
+
+
 }
 
 

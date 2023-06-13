@@ -9,7 +9,8 @@ public class VerificadorBuilding : MonoBehaviour
     public BuildTools _buildTools;
     public Building _buildBuilding;
     enum Itens
-    {
+    {  
+        espada = 0,
         enxada = 4,
         madeira = 7,
         sementeAbobora = 10,
@@ -36,7 +37,7 @@ public class VerificadorBuilding : MonoBehaviour
             _buildTools.buildingAtivar = true;
             _buildBuilding.t = true;
             
-           // _buildBuilding.ativarPreview();
+           
             _hotbarDisplay.SetDataBuilding();
 
         }
@@ -48,7 +49,10 @@ public class VerificadorBuilding : MonoBehaviour
             
         }
     }
-
+    public void limpar()
+    {
+        _hotbarDisplay.ClearSelectedItem();
+    }
     public void VerificarEnumPreview(int numero)
     {
         // Verifica se o número está presente no enum
@@ -78,15 +82,5 @@ public class VerificadorBuilding : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-        // Exemplo de uso do método
-        //VerificarEnum(numeroVerificar);
-    }
-
-    public void Update() {
-       // VerificarEnum(numeroVerificar);
-    }
 
 }

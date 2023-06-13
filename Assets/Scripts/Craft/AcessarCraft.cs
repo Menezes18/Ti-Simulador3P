@@ -12,6 +12,7 @@ public class AcessarCraft : MonoBehaviour
     private bool podeInteragir = false;
 
     public GameObject craftUI;
+    private bool isUIOpen = false;
 
     void Update()
     {
@@ -28,7 +29,26 @@ public class AcessarCraft : MonoBehaviour
 
         if (podeInteragir && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            
-        }
+            if (isUIOpen)
+            {
+                CloseUI();
+            }
+            else
+            {
+                OpenUI();
+            }
+        }   
+    }
+
+    void OpenUI()
+    {
+        craftUI.SetActive(true);
+        isUIOpen = true;
+    }
+
+    void CloseUI()
+    {
+        craftUI.SetActive(false);
+        isUIOpen = false;
     }
 }
