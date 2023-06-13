@@ -227,7 +227,6 @@ private void BuildModeLogic()
     PositionBuildingPreview();
    
 }
-
     private void PositionBuildingPreview()
     {
        // _spawnedBuilding.UpdateMaterial(_spawnedBuilding.IsOverlapping ? _buildingMatNegative : _buildingMatPositive);
@@ -245,34 +244,42 @@ private void BuildModeLogic()
            
             if (Mouse.current.leftButton.wasPressedThisFrame && !_spawnedBuilding.IsOverlapping)
             {
-                _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
-                _spawnedBuilding.PlaceBuilding();
-                var dataCopy2 = _spawnedBuilding.AssignedData;
-                _spawnedBuilding = null;
-                ChoosePart(dataCopy2);
-                buildingAtivar = true;
-           if(semente)
-             {
-
-               if (objectName == "Plant"){
-                    
-                _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
-                _spawnedBuilding.PlaceBuilding();
-                var dataCopy = _spawnedBuilding.AssignedData;
-                _spawnedBuilding = null;
-                ChoosePart(dataCopy);
-                buildingAtivar = true;
-                //itemData.DecreaseDurability(1);
-                //_hotbarDisplay.ClearSelectedItem(); //para limpar o item da hotbar
-
-                }
-                else
+              if(semente)
+              {
+                if(_spawnedBuilding.AssignedData.semente == false)
                 {
-                    _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+                    _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+                    _spawnedBuilding.PlaceBuilding();
+                    var dataCopy = _spawnedBuilding.AssignedData;
+                   _spawnedBuilding = null;
+                    Debug.Log(dataCopy);
+                    ChoosePart(dataCopy);
+                    buildingAtivar = true;
                 }
+                if(_spawnedBuilding.AssignedData.semente == true)
+                {
+                if (objectName == "Terra"){
+                        _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+                        _spawnedBuilding.PlaceBuilding();
+                        var dataCopy = _spawnedBuilding.AssignedData;
+                    _spawnedBuilding = null;
+                        Debug.Log(dataCopy);
+                        ChoosePart(dataCopy);
+                        buildingAtivar = true;
+                        itemData.DecreaseDurability(1);
+                        //_hotbarDisplay.ClearSelectedItem(); //para limpar o item da hotbar
+                        
+
+                    }
+                    else
+                    {
+                        _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+                    }
+                }
+                //if(_spawnedBuilding.AssignedData.)
               } 
               else
-               {
+              {
                  _spawnedBuilding.UpdateMaterial(_buildingMatInv);
                     _spawnedBuilding.PlaceBuilding();
                     var dataCopy = _spawnedBuilding.AssignedData;
