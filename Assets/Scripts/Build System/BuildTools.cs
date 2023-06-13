@@ -33,8 +33,11 @@ public class BuildTools : MonoBehaviour
     public string objectName;
 
     public HotbarDisplay _hotbarDisplay;
+    public GameObject ponto;
 
     public bool invisivel = false;
+    public string hitObjectTag;
+
     
     private void Start()
     {
@@ -42,6 +45,7 @@ public class BuildTools : MonoBehaviour
         _camera = Camera.main;
         ChoosePart(Data);
         _spawnedBuilding.UpdateMaterial(_buildingMatInv);
+
 
         
     }
@@ -74,9 +78,17 @@ public class BuildTools : MonoBehaviour
         _spawnedBuilding.transform.rotation = _lastRotation;
         
     }
-
+     public float raycastDistance = 10f;
     private void Update()
     {
+        if (IsRayHittingSomething(out hitObjectTag))
+        {
+            Debug.Log("Tag do objeto atingido: " + hitObjectTag);
+        }
+        else
+        {
+            Debug.Log("Nenhum objeto atingido");
+        }
         ReadRaycastObjectNames();
         if(buildingAtivar)
         {
@@ -84,6 +96,21 @@ public class BuildTools : MonoBehaviour
         if(_deleteModeEnabled) DeleteModeLogic();
         else BuildModeLogic();
         }
+    }
+    private bool IsRayHittingSomething(out string hitObjectTag)
+    {
+        var ray = new Ray(_rayOrigin.position, _camera.transform.forward * _rayDistance);
+        Debug.DrawRay(ray.origin, ray.direction * _rayDistance, Color.red);
+        
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, _rayDistance))
+        {
+            hitObjectTag = hit.collider.gameObject.tag;
+            return true;
+        }
+        
+        hitObjectTag = null;
+        return false;
     }
     //TODO: Pensar em outra maneira, pois aqui estou desativando o collider chando o metodo
     public void DesativarBox()
@@ -100,10 +127,12 @@ public class BuildTools : MonoBehaviour
             childCollider.enabled = true;
         }
     }
-
     private bool IsRayHittingSomething(LayerMask layerMask, out RaycastHit hitInfo)
     {
+       
         var ray = new Ray(_rayOrigin.position, _camera.transform.forward * _rayDistance);
+           
+        Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.red);
         return Physics.Raycast(ray, out hitInfo, _rayDistance, layerMask);
     }
     
@@ -113,7 +142,8 @@ public class BuildTools : MonoBehaviour
         {
             var delectedBuilding = hitInfo.collider.gameObject.GetComponentInParent<Building>();
 
-            if(delectedBuilding == null) return;
+            Debug.Log("deleted " + hitInfo);
+            /*if(delectedBuilding == null) return;
             if (_targetBuilding == null) _targetBuilding = delectedBuilding;
             if(delectedBuilding != _targetBuilding && _targetBuilding.FlaggedForDelete)
             {
@@ -133,7 +163,7 @@ public class BuildTools : MonoBehaviour
                 Destroy(_targetBuilding.gameObject);
                 _targetBuilding = null; 
 
-            }
+            }*/
 
         }
         else
@@ -146,12 +176,17 @@ public class BuildTools : MonoBehaviour
         }
     
     }  
+
+
+
+
+
 private void ReadRaycastObjectNames()
 {
     if (IsRayHittingSomething(_buildModeLayerMask, out RaycastHit hitInfo))
     {
         objectName = hitInfo.collider.gameObject.name;
-        //Debug.Log("Objeto olhado: " + objectName);
+       //Debug.Log("Objeto olhado: " + objectName); 
 
         if(objectName == "Plant")
         {
@@ -192,6 +227,7 @@ private void BuildModeLogic()
     PositionBuildingPreview();
    
 }
+
     private void PositionBuildingPreview()
     {
        // _spawnedBuilding.UpdateMaterial(_spawnedBuilding.IsOverlapping ? _buildingMatNegative : _buildingMatPositive);
@@ -209,19 +245,25 @@ private void BuildModeLogic()
            
             if (Mouse.current.leftButton.wasPressedThisFrame && !_spawnedBuilding.IsOverlapping)
             {
-              if(semente)
-              {
+                _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+                _spawnedBuilding.PlaceBuilding();
+                var dataCopy2 = _spawnedBuilding.AssignedData;
+                _spawnedBuilding = null;
+                ChoosePart(dataCopy2);
+                buildingAtivar = true;
+           if(semente)
+             {
 
                if (objectName == "Plant"){
-                    _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
-                    _spawnedBuilding.PlaceBuilding();
-                    var dataCopy = _spawnedBuilding.AssignedData;
-                   _spawnedBuilding = null;
-                    ChoosePart(dataCopy);
-                    buildingAtivar = true;
-                    itemData.DecreaseDurability(1);
-                    //_hotbarDisplay.ClearSelectedItem();
-                    Debug.Log("a");
+                    
+                _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+                _spawnedBuilding.PlaceBuilding();
+                var dataCopy = _spawnedBuilding.AssignedData;
+                _spawnedBuilding = null;
+                ChoosePart(dataCopy);
+                buildingAtivar = true;
+                //itemData.DecreaseDurability(1);
+                //_hotbarDisplay.ClearSelectedItem(); //para limpar o item da hotbar
 
                 }
                 else
@@ -230,7 +272,7 @@ private void BuildModeLogic()
                 }
               } 
               else
-              {
+               {
                  _spawnedBuilding.UpdateMaterial(_buildingMatInv);
                     _spawnedBuilding.PlaceBuilding();
                     var dataCopy = _spawnedBuilding.AssignedData;
