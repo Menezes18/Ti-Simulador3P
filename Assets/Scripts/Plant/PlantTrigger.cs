@@ -13,16 +13,16 @@ public class PlantTrigger : MonoBehaviour
    public Transform t;
 
 
-   public int Atualdias;
-   public int diasNaEstacao = 1;
-   public int dias;
+   private int Atualdias;
+   private int diasNaEstacao = 1;
+   private int dias;
 
-    public float segundos;
-    public float multiplacador;
-    public float soma = 86400f;
+   private float segundos;
+   private float multiplacador;
+   private float soma = 86400f;
 
-    public int idade = 0;
-    public bool idadeciclo = false;
+   private int idade = 0;
+   private bool idadeciclo = false;
 
     private void Start()
     {
@@ -109,8 +109,4 @@ public void ciclodiaPlant()
 }
 
 
-
-
-
-   
 }

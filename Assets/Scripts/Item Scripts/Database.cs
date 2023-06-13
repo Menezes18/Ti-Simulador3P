@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Inventory System/Item Database")]
 public class Database : ScriptableObject
 {
-    [SerializeField] private List<InventoryItemData> _itemDatabase;
+    [SerializeField] public List<InventoryItemData> _itemDatabase;
     internal InventoryItemData slotempty;
 
     [ContextMenu("Set IDs")]
