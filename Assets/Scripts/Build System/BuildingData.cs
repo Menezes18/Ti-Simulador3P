@@ -11,14 +11,7 @@ public class BuildingData : ScriptableObject
     public float GridSnapSize;
     public GameObject Prefab;
     public Vector3 BuildingSize;
-    public PartType PartType;
-}
-
-public enum PartType
-{
-    Arvore = 0,
-    Pedra = 1,
-    Mobilia = 2
+    public bool semente = false;
 }
 
 

@@ -325,33 +325,18 @@ public class HotbarDisplay : StaticInventoryDisplay
     {
         if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
         {   
-            
+            Debug.Log("A");
             itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
             Debug.Log(itemId);
             _verificadorBuilding.VerificarEnum(itemId);
-            // _ivItemData.buildingUse(true);
-            // //buildingUse = _ivItemData._building;
-            // //Debug.Log(_ivItemData._building);
-            // //Debug.Log("a");
             
         }
-        /*
-        if (buildingUse)
-        {
-            Debug.Log("AA");
-            //SetDataBuilding();
-        }
-        else
-        {
-            ClearSelectedItem();
-            if (slots[_currentIndex].AssignedInventorySlot.ItemData != null)
-            {
-            }
-        }*/
+
     }
 
     public void SetDataBuilding()
     {
+        
         slots[_currentIndex].AssignedInventorySlot.ItemData.UseItem();
         //ItemData.SetDataBuilding();
     }
