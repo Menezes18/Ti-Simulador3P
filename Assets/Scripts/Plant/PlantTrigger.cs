@@ -23,6 +23,15 @@ public class PlantTrigger : MonoBehaviour
 
    private int idade = 0;
    private bool idadeciclo = false;
+   private bool plantaInstanciada = false;
+   private bool ciclo1 = true;
+   private bool ciclo2 = false;
+   private bool ciclo3 = false;
+   public int diaciclo = 0;
+
+   public string tagBloco = "Player";
+   public int distancialimit = 2;
+   public bool acabou = false;
 
     private void Start()
     {
@@ -35,13 +44,30 @@ public class PlantTrigger : MonoBehaviour
 
    public void Update() 
    {
+
       estacaoAtual = cicloDiaNoite.estacaoAtual;
       tipoEstacao = plantedPlant.TipoEstacao;
       Atualdias = cicloDiaNoite.diaAtual;
 
       plantaEstagio();
+
+      GameObject[] blocos = GameObject.FindGameObjectsWithTag(tagBloco);
+        foreach (GameObject bloco in blocos)
+        {
+            float distancia = Vector3.Distance(transform.position, bloco.transform.position);
+
+            if (distancia <= distancialimit)
+            {
+               
+            }
+        }
       
    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, distancialimit);
+    }
 
    private void FixedUpdate()
    {
@@ -52,11 +78,6 @@ public class PlantTrigger : MonoBehaviour
       }
    }
 
-private bool plantaInstanciada = false;
-private bool ciclo1 = true;
-private bool ciclo2 = false;
-private bool ciclo3 = false;
-public int diaciclo = 0;
 
 public void plantaEstagio()
 {
@@ -69,25 +90,49 @@ public void plantaEstagio()
          diaciclo = dias / 3;
          if (idade == diaciclo && ciclo1)
          {
-            plantedPlant.GetPrefab(1, t);
+            GetPrefab(1, t);
             ciclo1 = false;
             ciclo2 = true;
          }else if(idade == diaciclo * 2 && ciclo2)
          {
-            plantedPlant.GetPrefab(2, t);
+            GetPrefab(2, t);
             ciclo2 = false;
             ciclo3 = true;
          }else if(idade == dias && ciclo3)
          {
-            plantedPlant.GetPrefab(3, t);
+
+            GetPrefab(3, t);
             ciclo3 = false;
             idadeciclo = false;
+            
          }
 
          
       }
    }
 }
+   public GameObject GetPrefab(int estagio, Transform parent)
+   {
+
+        if (estagio >= 1 && estagio <= 3)
+        {
+            if (plantedPlant.previousPrefab != null)
+            {
+                Destroy(plantedPlant.previousPrefab);
+            }
+
+            GameObject prefab = plantedPlant.prefabs[estagio - 1];
+            GameObject newPrefab = Instantiate(prefab, parent);
+            plantedPlant.previousPrefab = newPrefab;
+            return newPrefab;
+        }
+        else
+        {
+            Debug.Log("Estágio inválido");
+            return null;
+        }
+   }
+
 public void DropItem()
 {
     if (plantaInstanciada && !ciclo1 && !ciclo2 && !ciclo3)
