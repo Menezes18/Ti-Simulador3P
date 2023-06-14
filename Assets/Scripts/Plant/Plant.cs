@@ -29,53 +29,36 @@ public class Plant : ScriptableObject
     public List<GameObject> prefabs;
     public int dias;
 
-    private GameObject previousPrefab;
+    public GameObject previousPrefab;
     public GameObject mortePrefab;
     public GameObject item;
 
-    public GameObject GetPrefab(int estagio, Transform parent)
-    {
-        if (morte)
-        {
-            Morte(parent);
-            return null;
-        }
+    // public GameObject GetPrefab(int estagio, Transform parent)
+    // {
+    //     if (morte)
+    //     {
+    //         //Morte(parent);
+    //         return null;
+    //     }
 
-        if (estagio >= 1 && estagio <= 3)
-        {
-            if (previousPrefab != null)
-            {
-                Destroy(previousPrefab);
-            }
+    //     if (estagio >= 1 && estagio <= 3)
+    //     {
+    //         if (previousPrefab != null)
+    //         {
+    //             Destroy(previousPrefab);
+    //         }
 
-            GameObject prefab = prefabs[estagio - 1];
-            GameObject newPrefab = Instantiate(prefab, parent);
-            previousPrefab = newPrefab;
-            return newPrefab;
-        }
-        else
-        {
-            Debug.Log("Estágio inválido");
-            return null;
-        }
-    }
+    //         GameObject prefab = prefabs[estagio - 1];
+    //         GameObject newPrefab = Instantiate(prefab, parent);
+    //         previousPrefab = newPrefab;
+    //         return newPrefab;
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Estágio inválido");
+    //         return null;
+    //     }
+    // }
 
-    private void Morte(Transform parent)
-    {
-        if (previousPrefab != null)
-        {
-            Destroy(previousPrefab);
-        }
-
-
-        if (mortePrefab != null)
-        {
-            GameObject newPrefab = Instantiate(mortePrefab, parent);
-            previousPrefab = newPrefab;
-        }
-        else
-        {
-            Debug.Log("Prefab de morte não encontrado.");
-        }
-    }
+    
 }

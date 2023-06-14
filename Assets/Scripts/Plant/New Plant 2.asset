@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb11fa6c3a9ee204aadb324914a4d020, type: 3}
+  m_Name: New Plant 2
+  m_EditorClassIdentifier: 
+  Name: Trigo
+  TipoEstacao: 4
+  quantidadeAgua: 100
+  morte: 0
+  prefabs:
+  - {fileID: 1492490311660991655, guid: 031e88c56553dc343a1f35aab5d59aa2, type: 3}
+  - {fileID: 8878473861004008975, guid: 00922a0be30cdac4b8304cc388318fff, type: 3}
+  - {fileID: 3245791891382334887, guid: a75e1239e24c5b94c909d39478e6c56c, type: 3}
+  dias: 4
+  mortePrefab: {fileID: 5454982408652886596, guid: 3fad7afda52615d409b69f38034504df, type: 3}
+  item: {fileID: 0}

@@ -15,6 +15,6 @@ MonoBehaviour:
   DisplayName: Semente de Trigo
   Icon: {fileID: 21300000, guid: 6527d6567172c6e438d439f32f350f92, type: 3}
   GridSnapSize: 0
-  Prefab: {fileID: 7844409468666355946, guid: a6e3ed0d4515b1147be43f40507b7176, type: 3}
+  Prefab: {fileID: 2211517109068419072, guid: df525c814de7bf64ea8f4150ef1004ac, type: 3}
   BuildingSize: {x: 1, y: 1, z: 1}
-  PartType: 0
+  semente: 0
