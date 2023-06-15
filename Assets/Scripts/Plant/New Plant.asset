@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11fa6c3a9ee204aadb324914a4d020, type: 3}
   m_Name: New Plant
   m_EditorClassIdentifier: 
-  Name: Trigo
+  Name: Cenoura
   TipoEstacao: 4
   quantidadeAgua: 100
   morte: 0

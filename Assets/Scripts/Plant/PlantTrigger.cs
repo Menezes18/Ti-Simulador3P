@@ -1,6 +1,9 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.Debug;
 
 public class PlantTrigger : MonoBehaviour
 {
@@ -12,7 +15,7 @@ public class PlantTrigger : MonoBehaviour
 
    public Transform t;
 
-
+   private LayerMask playerLayer;
    private int Atualdias;
    private int diasNaEstacao = 1;
    private int dias;
@@ -28,13 +31,18 @@ public class PlantTrigger : MonoBehaviour
    private bool ciclo2 = false;
    private bool ciclo3 = false;
    public int diaciclo = 0;
-
+   public GameObject droppedItem;
+   public GameObject previousPrefab;
+   public float dropDistance = 2f;
    public string tagBloco = "Player";
    public int distancialimit = 2;
    public bool acabou = false;
 
     private void Start()
     {
+      playerLayer = LayerMask.GetMask("Player");
+      Transform filho = transform.Find("SementeTrigo");
+      t = transform;
       cicloDiaNoite = FindObjectOfType<CicloDiaNoite>();
       tipoEstacao = plantedPlant.TipoEstacao;
       dias = plantedPlant.dias;
@@ -58,16 +66,20 @@ public class PlantTrigger : MonoBehaviour
 
             if (distancia <= distancialimit)
             {
-               
+               if(acabou)
+               {
+                  if(Keyboard.current.eKey.wasPressedThisFrame)
+                  {
+                    UnityEngine.Debug.Log("aaaaa");
+                    TryDropItem();
+
+                  }
+               }
             }
         }
       
    }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, distancialimit);
-    }
+
 
    private void FixedUpdate()
    {
@@ -104,6 +116,7 @@ public void plantaEstagio()
             GetPrefab(3, t);
             ciclo3 = false;
             idadeciclo = false;
+            acabou = true;
             
          }
 
@@ -111,37 +124,53 @@ public void plantaEstagio()
       }
    }
 }
+
    public GameObject GetPrefab(int estagio, Transform parent)
    {
 
         if (estagio >= 1 && estagio <= 3)
         {
-            if (plantedPlant.previousPrefab != null)
+            if (previousPrefab != null)
             {
-                Destroy(plantedPlant.previousPrefab);
+                Destroy(previousPrefab);
             }
-
             GameObject prefab = plantedPlant.prefabs[estagio - 1];
             GameObject newPrefab = Instantiate(prefab, parent);
-            plantedPlant.previousPrefab = newPrefab;
+            previousPrefab = newPrefab;
             return newPrefab;
         }
         else
         {
-            Debug.Log("Estágio inválido");
+            //Debug.Log("Estágio inválido");
             return null;
         }
    }
 
-public void DropItem()
-{
-    if (plantaInstanciada && !ciclo1 && !ciclo2 && !ciclo3)
-    {
-        Instantiate(plantedPlant.item, transform.position, Quaternion.identity);
-        plantaInstanciada = false;
-    }
-}
+ private void TryDropItem()
+         {
+            Collider[] playerColliders = Physics.OverlapSphere(transform.position, dropDistance, playerLayer);
+            foreach (Collider playerCollider in playerColliders)
+            {
+                  if (playerCollider.CompareTag("Player"))  // Verifica se o objeto é o jogador
+                  {
+                     DropItem();
+                     break;
+                  }
+            }
+         }
 
+    private void DropItem()
+    {
+          UnityEngine.Debug.Log("aaaaa");
+        Instantiate(droppedItem, transform.position, Quaternion.identity);  // Instancia o item dropado
+        Destroy(gameObject);  // Destroi o objeto da planta
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, dropDistance);
+    }
 public void ciclodiaPlant()
 {
    segundos += Time.deltaTime * multiplacador;

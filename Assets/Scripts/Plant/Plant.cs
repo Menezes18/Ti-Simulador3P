@@ -29,7 +29,6 @@ public class Plant : ScriptableObject
     public List<GameObject> prefabs;
     public int dias;
 
-    public GameObject previousPrefab;
     public GameObject mortePrefab;
     public GameObject item;
 
