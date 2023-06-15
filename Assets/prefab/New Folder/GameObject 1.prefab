@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 5354536691443586262}
   - component: {fileID: 5763390722257538172}
   - component: {fileID: 5664182667687705025}
-  - component: {fileID: 5130034538686964676}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameObject 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,30 +61,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildTools: {fileID: 0}
   t: 0
---- !u!114 &5130034538686964676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2211517109068419072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea1b7760eda72842a99b32c8374405d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantedPlant: {fileID: 11400000, guid: a4630a3de92e75d4e92e70b8fb8b4f2a, type: 2}
-  cicloDiaNoite: {fileID: 0}
-  estacaoAtual: 0
-  tipoEstacao: 0
-  t: {fileID: 0}
-  diaciclo: 0
-  droppedItem: {fileID: 0}
-  previousPrefab: {fileID: 0}
-  dropDistance: 2
-  tagBloco: Player
-  distancialimit: 2
-  acabou: 0
 --- !u!1001 &1145662470210760249
 PrefabInstance:
   m_ObjectHideFlags: 0
