@@ -14,7 +14,7 @@ public class PlantTrigger : MonoBehaviour
    public TipoEstacao tipoEstacao;
 
    public Transform t;
-
+   private BuildTools _building;
    private LayerMask playerLayer;
    private int Atualdias;
    private int diasNaEstacao = 1;
@@ -40,9 +40,11 @@ public class PlantTrigger : MonoBehaviour
 
     private void Start()
     {
+      droppedItem = plantedPlant.item;
       playerLayer = LayerMask.GetMask("Player");
-      Transform filho = transform.Find("SementeTrigo");
       t = transform;
+      
+      _building = FindObjectOfType<BuildTools>();
       cicloDiaNoite = FindObjectOfType<CicloDiaNoite>();
       tipoEstacao = plantedPlant.TipoEstacao;
       dias = plantedPlant.dias;
@@ -70,7 +72,7 @@ public class PlantTrigger : MonoBehaviour
                {
                   if(Keyboard.current.eKey.wasPressedThisFrame)
                   {
-                    UnityEngine.Debug.Log("aaaaa");
+                    
                     TryDropItem();
 
                   }
@@ -102,17 +104,23 @@ public void plantaEstagio()
          diaciclo = dias / 3;
          if (idade == diaciclo && ciclo1)
          {
+            //GameObject childObject = transform.GetChild(0).gameObject;  // Obtém o primeiro filho do objeto atual
+            //Renderer renderer = childObject.GetComponent<Renderer>();
+
+            //Destroy(childObject);
+            t.position = new Vector3(t.position.x, plantedPlant.transform, t.position.z);
             GetPrefab(1, t);
             ciclo1 = false;
             ciclo2 = true;
          }else if(idade == diaciclo * 2 && ciclo2)
          {
+            t.position = new Vector3(t.position.x, plantedPlant.transform, t.position.z);
             GetPrefab(2, t);
             ciclo2 = false;
             ciclo3 = true;
          }else if(idade == dias && ciclo3)
          {
-
+            t.position = new Vector3(t.position.x, plantedPlant.transform, t.position.z);
             GetPrefab(3, t);
             ciclo3 = false;
             idadeciclo = false;
@@ -159,13 +167,23 @@ public void plantaEstagio()
             }
          }
 
-    private void DropItem()
-    {
-          UnityEngine.Debug.Log("aaaaa");
-        Instantiate(droppedItem, transform.position, Quaternion.identity);  // Instancia o item dropado
-        Destroy(gameObject);  // Destroi o objeto da planta
-    }
+      private void DropItem()
+      {
+      UnityEngine.Debug.Log("aaaaa");
 
+      GameObject droppedItemObject = Instantiate(droppedItem, transform.position, Quaternion.identity);  // Instancia o item dropado
+      Rigidbody droppedItemRigidbody = droppedItemObject.GetComponent<Rigidbody>();  // Obtém o Rigidbody do item dropado
+
+      // Adiciona uma força ao objeto recém-instanciado
+      if (droppedItemRigidbody != null)
+      {
+         Vector3 forceDirection = new Vector3(0f, 0.3f, 0f);  // Defina a direção da força aqui
+         float forceMagnitude = 10f;  // Defina a magnitude da força aqui
+         droppedItemRigidbody.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
+      }
+
+      Destroy(gameObject);  // Destroi o objeto da planta
+      }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

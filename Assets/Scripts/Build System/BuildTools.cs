@@ -143,27 +143,6 @@ public class BuildTools : MonoBehaviour
             var delectedBuilding = hitInfo.collider.gameObject.GetComponentInParent<Building>();
 
             Debug.Log("deleted " + hitInfo);
-            /*if(delectedBuilding == null) return;
-            if (_targetBuilding == null) _targetBuilding = delectedBuilding;
-            if(delectedBuilding != _targetBuilding && _targetBuilding.FlaggedForDelete)
-            {
-                _targetBuilding.RemoveDeleteFlag();
-                _targetBuilding = delectedBuilding;
-            }
-
-            if(delectedBuilding == _targetBuilding && !_targetBuilding.FlaggedForDelete)
-            {
-               
-                _targetBuilding.FlagForDelete(_buildingMatNegative);
-            }
-
-            if (Mouse.current.leftButton.wasPressedThisFrame)
-            {
-
-                Destroy(_targetBuilding.gameObject);
-                _targetBuilding = null; 
-
-            }*/
 
         }
         else
@@ -248,6 +227,7 @@ private void BuildModeLogic()
               {
                 if(_spawnedBuilding.AssignedData.semente == false)
                 {
+                    Debug.Log("AAaa");
                     _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
                     _spawnedBuilding.PlaceBuilding();
                     var dataCopy = _spawnedBuilding.AssignedData;

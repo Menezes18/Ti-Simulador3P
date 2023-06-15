@@ -28,36 +28,11 @@ public class Plant : ScriptableObject
     public bool morte;
     public List<GameObject> prefabs;
     public int dias;
-
     public GameObject mortePrefab;
     public GameObject item;
+    [Tooltip("Transform em Y")]
+    public float transform; // mudar a transform em y das plantas quando vao ser instanciadas 
 
-    // public GameObject GetPrefab(int estagio, Transform parent)
-    // {
-    //     if (morte)
-    //     {
-    //         //Morte(parent);
-    //         return null;
-    //     }
-
-    //     if (estagio >= 1 && estagio <= 3)
-    //     {
-    //         if (previousPrefab != null)
-    //         {
-    //             Destroy(previousPrefab);
-    //         }
-
-    //         GameObject prefab = prefabs[estagio - 1];
-    //         GameObject newPrefab = Instantiate(prefab, parent);
-    //         previousPrefab = newPrefab;
-    //         return newPrefab;
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("Estágio inválido");
-    //         return null;
-    //     }
-    // }
 
     
 }
