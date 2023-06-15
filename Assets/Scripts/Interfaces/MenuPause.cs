@@ -17,7 +17,7 @@ public class MenuPause : MonoBehaviour
     {
         if (Keyboard.current.pKey.wasPressedThisFrame)
         {
-            if (pauseMenu.gameObject.activeSelf)
+            if (pauseMenu.activeSelf)
             {
                 pauseMenu.SetActive(false);
                 Time.timeScale = 1;

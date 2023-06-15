@@ -24,7 +24,7 @@ public class CicloDiaNoite : MonoBehaviour
     public float multiplacador;
     public float soma = 86400f;
 
-    public int diaAtual;
+    public int diaAtual = 1;
     
     public Estacao estacaoAtual = Estacao.Primavera;
     private int anoAtual = 1850;
@@ -37,7 +37,7 @@ public class CicloDiaNoite : MonoBehaviour
     void Start()
     {
         multiplacador = 86400 / duracaoDoDia;
-
+        diaAtual = 1;
     }
 
     void Update()
@@ -85,6 +85,6 @@ public class CicloDiaNoite : MonoBehaviour
 
     private void CalcularAno()
     {
-        anoText.text = diaAtual + "/" + anoAtual.ToString();
+        anoText.text = "DIA " + " \n" + diaAtual;
     }
 }
