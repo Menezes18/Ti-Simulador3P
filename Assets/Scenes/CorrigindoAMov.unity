@@ -10618,6 +10618,9 @@ MonoBehaviour:
   tipoEstacao: 0
   t: {fileID: 1931359549}
   diaciclo: 0
+  tagBloco: Player
+  distancialimit: 2
+  acabou: 0
 --- !u!4 &1931359549
 Transform:
   m_ObjectHideFlags: 0
