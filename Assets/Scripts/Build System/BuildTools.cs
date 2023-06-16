@@ -225,17 +225,17 @@ private void BuildModeLogic()
             {
               if(semente)
               {
-                if(_spawnedBuilding.AssignedData.semente == false)
-                {
-                    Debug.Log("AAaa");
-                    _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
-                    _spawnedBuilding.PlaceBuilding();
-                    var dataCopy = _spawnedBuilding.AssignedData;
-                   _spawnedBuilding = null;
-                    Debug.Log(dataCopy);
-                    ChoosePart(dataCopy);
-                    buildingAtivar = true;
-                }
+                // if(_spawnedBuilding.AssignedData.semente == false)
+                // {
+                //     Debug.Log("AAaa");
+                //     _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+                //     _spawnedBuilding.PlaceBuilding();
+                //     var dataCopy = _spawnedBuilding.AssignedData;
+                //    _spawnedBuilding = null;
+                //     Debug.Log(dataCopy);
+                //     ChoosePart(dataCopy);
+                //     buildingAtivar = true;
+                // }
                 if(_spawnedBuilding.AssignedData.semente == true)
                 {
                 if (objectName == "Terra"){
