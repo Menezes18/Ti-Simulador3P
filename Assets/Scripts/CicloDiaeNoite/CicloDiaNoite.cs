@@ -45,6 +45,9 @@ public class CicloDiaNoite : MonoBehaviour
         Primavera.SetActive(true);
         multiplacador = 86400 / duracaoDoDia;
         diaAtual = 1;
+        segundos = 0;
+        TimeSpan horarioInicial = TimeSpan.FromHours(6);
+        segundos = (float)horarioInicial.TotalSeconds;
 
     }
 

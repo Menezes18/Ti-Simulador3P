@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 16
   DisplayName: Semente de Cenoura
   Description: Semente de Cenoura.
-  Icon: {fileID: 21300000, guid: 0c8ef1a8432eb1d4280b1e79eaae9fa4, type: 3}
+  Icon: {fileID: 21300000, guid: 99852a93f37f2ff4c9a2dfeedcc82096, type: 3}
   MaxStackSize: 8
   GoldValue: 12
   ItemPrefab: {fileID: 2211517109068419072, guid: df525c814de7bf64ea8f4150ef1004ac, type: 3}
