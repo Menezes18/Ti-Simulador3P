@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb11fa6c3a9ee204aadb324914a4d020, type: 3}
-  m_Name: New Plant
+  m_Name: cenoura
   m_EditorClassIdentifier: 
-  Name: Trigo
+  Name: Cenoura
   TipoEstacao: 4
   quantidadeAgua: 100
   morte: 0
@@ -22,4 +22,5 @@ MonoBehaviour:
   - {fileID: 3245791891382334887, guid: a75e1239e24c5b94c909d39478e6c56c, type: 3}
   dias: 4
   mortePrefab: {fileID: 5454982408652886596, guid: 3fad7afda52615d409b69f38034504df, type: 3}
-  item: {fileID: 0}
+  item: {fileID: 2079361290821738425, guid: d818a3271e615c143a6ea66a822d7afa, type: 3}
+  transform: -0.5

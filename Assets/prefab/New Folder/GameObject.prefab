@@ -80,6 +80,12 @@ MonoBehaviour:
   tipoEstacao: 0
   t: {fileID: 0}
   diaciclo: 0
+  droppedItem: {fileID: 0}
+  previousPrefab: {fileID: 0}
+  dropDistance: 2
+  tagBloco: Player
+  distancialimit: 2
+  acabou: 0
 --- !u!1001 &1145662470210760249
 PrefabInstance:
   m_ObjectHideFlags: 0
