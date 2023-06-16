@@ -32,12 +32,20 @@ public class CicloDiaNoite : MonoBehaviour
 
     public bool pode2 = false;
     public int diaTest = 0;
-    
+
+    public GameObject sol;
+    public GameObject lua;
+    public GameObject Primavera;
+    public GameObject Verao;
+    public GameObject Outono;
+    public GameObject Inverno;
 
     void Start()
     {
+        Primavera.SetActive(true);
         multiplacador = 86400 / duracaoDoDia;
         diaAtual = 1;
+
     }
 
     void Update()
@@ -63,6 +71,7 @@ public class CicloDiaNoite : MonoBehaviour
                 {
                     anoAtual++;
                 }
+                AtualizarEstacao();
             }
 
 
@@ -70,12 +79,65 @@ public class CicloDiaNoite : MonoBehaviour
         ProcessarCeu();
         CalcularHorario();
         CalcularAno();
+
+        // Verificar se é noite (entre 18:00 e 05:00) ou dia (entre 06:00 e 17:59)
+        TimeSpan horarioAtual = TimeSpan.FromSeconds(segundos);
+        TimeSpan inicioNoite = TimeSpan.FromHours(18);
+        TimeSpan fimNoite = TimeSpan.FromHours(5);
+        TimeSpan inicioDia = TimeSpan.FromHours(6);
+        TimeSpan fimDia = TimeSpan.FromHours(17).Add(TimeSpan.FromMinutes(59)); // Adiciona 59 minutos ao fim do dia
+
+        if (horarioAtual >= inicioNoite || horarioAtual <= fimNoite)
+        {
+            lua.SetActive(true);
+            sol.SetActive(false);
+            Debug.Log("noite");
+        }
+        else if (horarioAtual >= inicioDia && horarioAtual <= fimDia)
+        {
+            lua.SetActive(false);
+            sol.SetActive(true);
+            Debug.Log("dia");
+        }
+
+
     }
 
     private void ProcessarCeu()
     {
         float rotacaoX = Mathf.Lerp(-90, 270, segundos / 86400);
         luzDirecional.rotation = Quaternion.Euler(rotacaoX, 0, 0);
+    }
+
+    public void AtualizarEstacao()
+    {
+        switch (estacaoAtual)
+        {
+            case Estacao.Primavera:
+            Primavera.SetActive(true);
+            Verao.SetActive(false);
+            Outono.SetActive(false);
+            Inverno.SetActive(false);
+            break;
+            case Estacao.Verao:
+            Primavera.SetActive(false);
+            Verao.SetActive(true);
+            Outono.SetActive(false);
+            Inverno.SetActive(false);
+            break;
+            case Estacao.Outono:
+            Primavera.SetActive(false);
+            Verao.SetActive(false);
+            Outono.SetActive(true);
+            Inverno.SetActive(false);
+            break;
+            case Estacao.Inverno:
+            Primavera.SetActive(false);
+            Verao.SetActive(false);
+            Outono.SetActive(false);
+            Inverno.SetActive(true);
+            break;
+        }
     }
 
     private void CalcularHorario()
