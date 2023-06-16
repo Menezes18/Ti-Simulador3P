@@ -13,7 +13,16 @@ public class PlayerLocomotion : MonoBehaviour
     public float movementSpeed = 7;
     public float rotationSpeed = 15;
 
+    [Header("Movement Flags")]
+    public bool isSprinting;
+    public bool isGrounded;
 
+    [Header("Falling")]
+    public float inAirTimer;
+    public float leapingVelocity;
+    public float fallingVelocity;
+    public float rayCastHeightOffSet = 0.5f;
+    public LayerMask groundLayer;
 
     private void Awake()
     {
@@ -24,6 +33,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void HandleAllMovement()
     {
+        HandleFallingAndLanding();
         HandleMovement();
         HandleRotation();
     }
@@ -63,6 +73,34 @@ public class PlayerLocomotion : MonoBehaviour
 
     }
 
+    private void HandleFallingAndLanding()
+    {
+        RaycastHit hit;
+        Vector3 rayCastOrigin = transform.position;
+        rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffSet;
 
+        if (!isGrounded)
+        {
+            inAirTimer = inAirTimer + Time.deltaTime;
+            playerRigidbody.AddForce(transform.forward * leapingVelocity);
+            playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+            
+        }
+        
+
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, -Vector3.up, out hit, groundLayer))
+        {
+            inAirTimer = 0;
+            isGrounded = true;
+            Debug.Log("A");
+        }
+        else
+        {
+            
+            isGrounded = false;
+             Debug.Log("B");
+        }
+
+    }
 
 }

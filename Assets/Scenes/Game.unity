@@ -4192,6 +4192,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   rotationSpeed: 3
+  isSprinting: 0
+  isGrounded: 0
+  inAirTimer: 0
+  leapingVelocity: 3
+  fallingVelocity: 1000
+  rayCastHeightOffSet: 0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &702769768
 MonoBehaviour:
   m_ObjectHideFlags: 0
