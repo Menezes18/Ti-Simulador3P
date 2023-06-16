@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43b9388be1ac3e48a151d35b05f8605, type: 3}
+  m_Name: "Semente Mel\xE3o"
+  m_EditorClassIdentifier: 
+  DisplayName: "Semente de Mel\xE3o"
+  Icon: {fileID: 21300000, guid: 6527d6567172c6e438d439f32f350f92, type: 3}
+  GridSnapSize: 0
+  Prefab: {fileID: 2211517109068419072, guid: 7ed58c3a065786a4d9b22d36ef3223dc, type: 3}
+  BuildingSize: {x: 1, y: 1, z: 1}
+  semente: 0

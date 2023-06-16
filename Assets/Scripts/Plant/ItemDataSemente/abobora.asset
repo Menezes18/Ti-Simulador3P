@@ -22,5 +22,5 @@ MonoBehaviour:
   - {fileID: 9140897946000995740, guid: d91bcf022525dcc41b95ebca7ebbbf8d, type: 3}
   dias: 13
   mortePrefab: {fileID: 103528480371819801, guid: 4313fa8d3208b5944af5483436fe0413, type: 3}
-  item: {fileID: 919132149155446097, guid: 4e2095affd85e0a4c9f64d4b0f9abbc7, type: 3}
+  item: {fileID: 2079361290821738425, guid: 98f559bc7f42c81499003a1b2b80a2b5, type: 3}
   transform: 0

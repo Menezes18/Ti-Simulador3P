@@ -16,7 +16,10 @@ MonoBehaviour:
   TipoEstacao: 4
   quantidadeAgua: 0
   morte: 0
-  prefabs: []
+  prefabs:
+  - {fileID: 5289520415642283146, guid: d70d96ab5fc0625499546c11e43466a1, type: 3}
+  - {fileID: 5400551674130433346, guid: 41e67c7caf7ca1449bce142b13a1b093, type: 3}
+  - {fileID: 5035093256433799977, guid: 9e8f47d49541be64db06b2db83a688a7, type: 3}
   dias: 8
   mortePrefab: {fileID: 919132149155446097, guid: cd199ad98736a3943bd3abfb80ceda95, type: 3}
   item: {fileID: 919132149155446097, guid: 337e6faa58c8d7844ae9293f826b3b62, type: 3}
