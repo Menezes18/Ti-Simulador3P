@@ -15,9 +15,10 @@ MonoBehaviour:
   ID: 21
   DisplayName: Pimenta
   Description: Pimenta
-  Icon: {fileID: 21300000, guid: c06f1c2589a1dcc41b385388110af23f, type: 3}
+  Icon: {fileID: 21300000, guid: ac55101a4a39cfb449bc19cb36149cc6, type: 3}
   MaxStackSize: 8
   GoldValue: 15
   ItemPrefab: {fileID: 2079361290821738425, guid: 2d2e44bf9b53ff74191ac84ff651a09f, type: 3}
   ItemData: {fileID: 0}
   _building: 0
+  durabilidade: 0

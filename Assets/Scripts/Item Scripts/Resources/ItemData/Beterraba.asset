@@ -15,9 +15,10 @@ MonoBehaviour:
   ID: 15
   DisplayName: Beterraba
   Description: Beterraba
-  Icon: {fileID: 21300000, guid: c06f1c2589a1dcc41b385388110af23f, type: 3}
+  Icon: {fileID: 21300000, guid: d8d9486fabe2f034bbab84960a14100c, type: 3}
   MaxStackSize: 8
   GoldValue: 45
   ItemPrefab: {fileID: 2079361290821738425, guid: 43aa367e835066f48b88c1cd4f543103, type: 3}
   ItemData: {fileID: 0}
   _building: 0
+  durabilidade: 0

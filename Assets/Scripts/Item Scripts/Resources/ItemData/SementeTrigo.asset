@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 22
   DisplayName: Semente de Trigo
   Description: Semente de Trigo.
-  Icon: {fileID: 21300000, guid: 0c8ef1a8432eb1d4280b1e79eaae9fa4, type: 3}
+  Icon: {fileID: 21300000, guid: c91228e5a8e1fe74287416e0571b4e2a, type: 3}
   MaxStackSize: 8
   GoldValue: 10
   ItemPrefab: {fileID: 2211517109068419072, guid: 96b4fe9bdeff73745bfad20505836bf1, type: 3}

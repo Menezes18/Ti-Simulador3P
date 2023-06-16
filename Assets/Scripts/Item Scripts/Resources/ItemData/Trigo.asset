@@ -15,9 +15,10 @@ MonoBehaviour:
   ID: 23
   DisplayName: Trigo
   Description: Trigo
-  Icon: {fileID: 21300000, guid: c06f1c2589a1dcc41b385388110af23f, type: 3}
+  Icon: {fileID: 21300000, guid: 31106dcf9b17d454c9a4729104435a0a, type: 3}
   MaxStackSize: 8
   GoldValue: 12
   ItemPrefab: {fileID: 2079361290821738425, guid: 8c4e8107b5296f24e938c11ce4ea29f2, type: 3}
   ItemData: {fileID: 0}
   _building: 0
+  durabilidade: 0
