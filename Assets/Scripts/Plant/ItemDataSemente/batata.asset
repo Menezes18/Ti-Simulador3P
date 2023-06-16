@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb11fa6c3a9ee204aadb324914a4d020, type: 3}
+  m_Name: batata
+  m_EditorClassIdentifier: 
+  Name: Batata
+  TipoEstacao: 3
+  quantidadeAgua: 0
+  morte: 0
+  prefabs:
+  - {fileID: 6194164618383533509, guid: fc38b2f1870f6e6408887c787f51e232, type: 3}
+  - {fileID: 863762411203875431, guid: fd74d70ab19324a428b6ae824248ad40, type: 3}
+  - {fileID: 8546663019164838625, guid: 15bab0e525b6372429f82f2763bc404b, type: 3}
+  dias: 3
+  mortePrefab: {fileID: 919132149155446097, guid: 02bccf5f27cbb6d469bd25c1fd239241, type: 3}
+  item: {fileID: 2079361290821738425, guid: 6662caf9043853b4d98f0c4f040e945c, type: 3}
+  transform: 0

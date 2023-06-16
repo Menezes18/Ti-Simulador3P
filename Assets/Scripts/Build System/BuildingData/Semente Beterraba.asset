@@ -15,6 +15,6 @@ MonoBehaviour:
   DisplayName: Semente de Beterraba
   Icon: {fileID: 21300000, guid: 6527d6567172c6e438d439f32f350f92, type: 3}
   GridSnapSize: 0
-  Prefab: {fileID: 2079361290821738425, guid: 0d79f4ad02849d540a8458908aa603bc, type: 3}
+  Prefab: {fileID: 2211517109068419072, guid: edd722ca41792594fb2573de814cd37e, type: 3}
   BuildingSize: {x: 1, y: 1, z: 1}
-  PartType: 0
+  semente: 0

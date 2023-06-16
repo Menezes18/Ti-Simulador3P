@@ -15,6 +15,6 @@ MonoBehaviour:
   DisplayName: Semente de Pimenta
   Icon: {fileID: 21300000, guid: 6527d6567172c6e438d439f32f350f92, type: 3}
   GridSnapSize: 0
-  Prefab: {fileID: 2079361290821738425, guid: 05839a21d75eeb14cb2d5a77d80960cc, type: 3}
+  Prefab: {fileID: 2211517109068419072, guid: 87654f86f15fb454fb07a93e18fbc4c2, type: 3}
   BuildingSize: {x: 1, y: 1, z: 1}
-  PartType: 0
+  semente: 0

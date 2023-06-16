@@ -15,6 +15,6 @@ MonoBehaviour:
   DisplayName: Semente de Batata
   Icon: {fileID: 21300000, guid: 6527d6567172c6e438d439f32f350f92, type: 3}
   GridSnapSize: 0
-  Prefab: {fileID: 2079361290821738425, guid: fc903e4c2caedff41b86ccd66ec144ea, type: 3}
+  Prefab: {fileID: 2211517109068419072, guid: 71abbaece549f4046b27bef931d13865, type: 3}
   BuildingSize: {x: 1, y: 1, z: 1}
-  PartType: 0
+  semente: 0

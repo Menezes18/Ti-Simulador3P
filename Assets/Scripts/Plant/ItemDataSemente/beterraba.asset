@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb11fa6c3a9ee204aadb324914a4d020, type: 3}
+  m_Name: beterraba
+  m_EditorClassIdentifier: 
+  Name: Beterraba
+  TipoEstacao: 1
+  quantidadeAgua: 0
+  morte: 0
+  prefabs:
+  - {fileID: 5799640142533308868, guid: 6cf9745498c2602459572bc09d09dfac, type: 3}
+  - {fileID: 5651580065513257539, guid: 2179da00344c4124e9d814bd34714577, type: 3}
+  - {fileID: 3118195516033455507, guid: 625e83b655aab074f897502534526c0a, type: 3}
+  dias: 7
+  mortePrefab: {fileID: 2990621393555383728, guid: c68abd2b68083ae4b8ce76a7bb64d1be, type: 3}
+  item: {fileID: 2079361290821738425, guid: 43aa367e835066f48b88c1cd4f543103, type: 3}
+  transform: 0

@@ -18,6 +18,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: c06f1c2589a1dcc41b385388110af23f, type: 3}
   MaxStackSize: 8
   GoldValue: 190
-  ItemPrefab: {fileID: 2079361290821738425, guid: 98f559bc7f42c81499003a1b2b80a2b5, type: 3}
+  ItemPrefab: {fileID: 6366583727303997571, guid: b12911a00c0151e4091f98505ae49d69, type: 3}
   ItemData: {fileID: 0}
   _building: 0
+  durabilidade: 0

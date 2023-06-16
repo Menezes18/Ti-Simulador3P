@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb11fa6c3a9ee204aadb324914a4d020, type: 3}
+  m_Name: pimenta
+  m_EditorClassIdentifier: 
+  Name: Pimenta
+  TipoEstacao: 4
+  quantidadeAgua: 0
+  morte: 0
+  prefabs:
+  - {fileID: 1633404869063085553, guid: dee83ff617fa8af489f9587655734982, type: 3}
+  - {fileID: 2993724449941255086, guid: 9af87b3c096652f4aa285800de5dac6a, type: 3}
+  - {fileID: 2317533572208126682, guid: 60c02c46aa2217e4683fa83c6a50bc51, type: 3}
+  dias: 5
+  mortePrefab: {fileID: 919132149155446097, guid: 64219c8ff3dd43649b9ab6283641f193, type: 3}
+  item: {fileID: 2079361290821738425, guid: 2d2e44bf9b53ff74191ac84ff651a09f, type: 3}
+  transform: 0
