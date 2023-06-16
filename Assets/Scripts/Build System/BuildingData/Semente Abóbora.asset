@@ -15,6 +15,6 @@ MonoBehaviour:
   DisplayName: "Semente de Ab\xF3bora"
   Icon: {fileID: 21300000, guid: 6527d6567172c6e438d439f32f350f92, type: 3}
   GridSnapSize: 0
-  Prefab: {fileID: 6366583727303997571, guid: b12911a00c0151e4091f98505ae49d69, type: 3}
+  Prefab: {fileID: 2211517109068419072, guid: c560399fb76128c469f08282f251ffff, type: 3}
   BuildingSize: {x: 1, y: 1, z: 1}
   semente: 0
