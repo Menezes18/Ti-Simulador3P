@@ -64,7 +64,7 @@ public class CicloDiaNoite : MonoBehaviour
             {
                 diaTest++;
             }            
-            if (diaAtual == 8)
+            if (diaAtual == 30)
             {
                 
                 diaAtual = 1;
