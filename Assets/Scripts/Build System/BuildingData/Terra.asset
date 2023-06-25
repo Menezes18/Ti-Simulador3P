@@ -16,5 +16,6 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 291ae24be1cf6c348b601b83e43bb4b8, type: 3}
   GridSnapSize: 0
   Prefab: {fileID: 6296395606461999034, guid: 6a18c721cc0f3a94cadd4a81187cdf40, type: 3}
-  BuildingSize: {x: 10, y: 0, z: 10}
-  PartType: 0
+  BuildingSize: {x: 1, y: -1, z: 1}
+  semente: 0
+  plantacao: 0

@@ -33,7 +33,7 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        if (!SaveGameManager.data._shopKeeperDictionary.ContainsKey(_id)) SaveGameManager.data._shopKeeperDictionary.Add(_id, _shopSaveData);
+       // if (!SaveGameManager.data._shopKeeperDictionary.ContainsKey(_id)) SaveGameManager.data._shopKeeperDictionary.Add(_id, _shopSaveData);
     }
 
     private void OnEnable()

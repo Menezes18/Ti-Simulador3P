@@ -200,6 +200,35 @@ public class HotbarDisplay : StaticInventoryDisplay
         Debug.LogWarning("Não há slots disponíveis na hotbar para adicionar o item.");
     }
 
+    public void GetItemInHand()
+    {
+        InventoryItemData itemData = slots[_currentIndex].AssignedInventorySlot.ItemData;
+        if (itemData != null)
+        {
+            string itemName = itemData.DisplayName;
+            int itemId = itemData.ID;
+            Debug.Log("Item na mão: " + itemName + " (ID: " + itemId + ")");
+        }
+        else
+        {
+            Debug.Log("Nenhum item na mão.");
+        }
+    }
+    public int GetItemCount(int itemId)
+    {
+        int itemCount = 0;
+
+        foreach (InventorySlot_UI slotUI in slots)
+        {
+            InventorySlot slot = slotUI.AssignedInventorySlot;
+            if (slot.ItemData != null && slot.ItemData.ID == itemId)
+            {
+                itemCount += slot.StackSize;
+            }
+        }
+
+        return itemCount;
+    }
     
     public void RemoveItem(int itemId, int quantity)
     {
@@ -221,6 +250,7 @@ public class HotbarDisplay : StaticInventoryDisplay
             }
         }
     }
+
     public bool CheckItemInHotbar(int itemId)
     {
         foreach (InventorySlot_UI slotUI in slots)
@@ -236,10 +266,10 @@ public class HotbarDisplay : StaticInventoryDisplay
 
     private void Update()
     {
-        // if (Keyboard.current.fKey.wasPressedThisFrame)
-        // {
-        //     CheckHotbar();
-        // }
+         if (Keyboard.current.fKey.wasPressedThisFrame)
+         {
+             GetItemInHand();
+         }
         if (Keyboard.current.mKey.wasPressedThisFrame)
          {
               RemoveItem(0, 1);
@@ -328,11 +358,27 @@ public class HotbarDisplay : StaticInventoryDisplay
             Debug.Log("A");
             itemId = slots[_currentIndex].AssignedInventorySlot.ItemData.ID;
             Debug.Log(itemId);
-            _verificadorBuilding.VerificarEnum(itemId);
+            _verificadorBuilding.VerificarEnum(itemId); //coloca o item no verificador para n limpar da hotbar quando usar
             
         }
 
     }
+    /// <summary>
+    /// Verifica se o item com o ID fornecido está na mão.
+    /// </summary>
+    /// <param name="itemId">O ID do item a ser verificado.</param>
+    /// <returns>True se o item estiver na mão, False caso contrário.</returns>
+    public bool IsItemInHand(int itemId)
+    {
+        InventoryItemData itemData = slots[_currentIndex].AssignedInventorySlot.ItemData;
+        if (itemData != null && itemData.ID == itemId)
+        {
+            return true; // O item está na mão
+        }
+
+        return false; // O item não está na mão
+    }
+
 
     public void SetDataBuilding()
     {

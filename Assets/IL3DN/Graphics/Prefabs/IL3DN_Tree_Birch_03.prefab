@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7129530358217104452}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_03
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,26 +55,11 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.84293675
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 2657216334312638604}
-    - renderer: {fileID: 2657216334312638602}
-  - screenRelativeHeight: 0.65672874
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 2657216334312638606}
-    - renderer: {fileID: 5901201430275416394}
-  - screenRelativeHeight: 0.4070092
+  - screenRelativeHeight: 0.2826182
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2657216334312638640}
     - renderer: {fileID: 5901201430275416396}
-  - screenRelativeHeight: 0.29913625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5901201430275416384}
-    - renderer: {fileID: 5901201430275416398}
   m_Enabled: 1
 --- !u!136 &7129530358217104452
 CapsuleCollider:
@@ -85,7 +70,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 172993687134115460}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.2
   m_Height: 4
   m_Direction: 1
@@ -107,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2657216334315063982
 Transform:
   m_ObjectHideFlags: 0
@@ -190,7 +175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2657216334315064144
 Transform:
   m_ObjectHideFlags: 0
@@ -273,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2657216334315064146
 Transform:
   m_ObjectHideFlags: 0
@@ -350,6 +335,7 @@ GameObject:
   - component: {fileID: 2657216334315064148}
   - component: {fileID: 2657216334311672688}
   - component: {fileID: 2657216334312638640}
+  - component: {fileID: 632202859}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_03_Leaves_LOD2
   m_TagString: Untagged
@@ -422,6 +408,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &632202859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657216334314641268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.7950358, y: 5.7, z: 4.0115285}
+  m_Center: {x: 0.104065835, y: 6.04, z: -0.05929035}
 --- !u!1 &5901201430277357184
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +432,7 @@ GameObject:
   - component: {fileID: 5901201430277186208}
   - component: {fileID: 5901201430274286220}
   - component: {fileID: 5901201430275416396}
+  - component: {fileID: 881796383}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_03_Branch_LOD2
   m_TagString: Untagged
@@ -505,6 +505,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &881796383
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901201430277357184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.41
+  m_Height: 8.952096
+  m_Direction: 1
+  m_Center: {x: 0.066167116, y: 4.20768, z: -0.08450395}
 --- !u!1 &5901201430277357186
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5901201430277186210
 Transform:
   m_ObjectHideFlags: 0
@@ -605,7 +619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5901201430277186212
 Transform:
   m_ObjectHideFlags: 0
@@ -688,7 +702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5901201430277186222
 Transform:
   m_ObjectHideFlags: 0

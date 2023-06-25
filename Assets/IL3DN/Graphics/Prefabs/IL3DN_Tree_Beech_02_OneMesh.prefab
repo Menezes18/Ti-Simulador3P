@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6122872715311679585
 Transform:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 467465954586091921}
   m_Layer: 0
   m_Name: IL3DN_Tree_Beech_02_OneMesh
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,22 +135,10 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.74074125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 6593682602505065119}
-  - screenRelativeHeight: 0.5419363
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 7161304693204441632}
-  - screenRelativeHeight: 0.37996656
+  - screenRelativeHeight: 0.18011953
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 78215338227472742}
-  - screenRelativeHeight: 0.3017632
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 7860596580597013163}
   m_Enabled: 1
 --- !u!136 &467465954586091921
 CapsuleCollider:
@@ -161,7 +149,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4556671804527212049}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.2
   m_Height: 4
   m_Direction: 1
@@ -183,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3623661089889728905
 Transform:
   m_ObjectHideFlags: 0
@@ -261,9 +249,11 @@ GameObject:
   - component: {fileID: 1774592226352455636}
   - component: {fileID: 6215937485300100272}
   - component: {fileID: 78215338227472742}
+  - component: {fileID: 130473673146394038}
+  - component: {fileID: 6920182402408206958}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_02_LOD2
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,6 +324,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &130473673146394038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618937547866774681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.67, y: 4.65, z: 3.74}
+  m_Center: {x: 0.16823852, y: 4.53, z: -0.10889113}
+--- !u!65 &6920182402408206958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618937547866774681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 2.14, z: 0.81}
+  m_Center: {x: 0.16823852, y: 1.02, z: -0.10889113}
 --- !u!1 &6103196526342393084
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8303425979906980848
 Transform:
   m_ObjectHideFlags: 0

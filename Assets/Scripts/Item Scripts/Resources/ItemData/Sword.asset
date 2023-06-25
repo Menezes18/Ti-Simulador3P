@@ -22,4 +22,3 @@ MonoBehaviour:
   ItemData: {fileID: 11400000, guid: 8b6b5ba0fd3409e42951a0f739918b7d, type: 2}
   _building: 1
   durabilidade: 10
-  verificadorBuilding: {fileID: 0}

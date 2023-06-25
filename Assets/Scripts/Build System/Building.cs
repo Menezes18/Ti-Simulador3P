@@ -70,6 +70,7 @@ public class Building : MonoBehaviour
 
     public void UpdateMaterial(Material newMaterial)
     {
+        
         if(_renderer.material != newMaterial) _renderer.material = newMaterial;
     }
 

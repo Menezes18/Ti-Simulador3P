@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7458024337223833462
 Transform:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4458646266843382634
 Transform:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5934690087356494256
 Transform:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 8132558772333109037}
   m_Layer: 0
   m_Name: IL3DN_Tree_Beech_03
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +285,6 @@ Transform:
   - {fileID: 5934690087356494256}
   - {fileID: 4458646266843382634}
   - {fileID: 6419305157352218247}
-  - {fileID: 4667047648355435151}
   - {fileID: 9148786921575430394}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -304,26 +303,11 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.77829194
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1024183157350464152}
-    - renderer: {fileID: 3507940467393695296}
-  - screenRelativeHeight: 0.5887359
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 2262835693392423839}
-    - renderer: {fileID: 8109120599428968763}
   - screenRelativeHeight: 0.41932583
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4630023386881662720}
     - renderer: {fileID: 9120750256736954985}
-  - screenRelativeHeight: 0.28617293
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8645181974428505310}
-    - renderer: {fileID: 8819134118466638540}
   m_Enabled: 1
 --- !u!136 &8132558772333109037
 CapsuleCollider:
@@ -350,9 +334,10 @@ GameObject:
   - component: {fileID: 4667047648355435151}
   - component: {fileID: 3275955467781204594}
   - component: {fileID: 4630023386881662720}
+  - component: {fileID: 3185791815532253115}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_03_Leaves_LOD2
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,13 +349,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3264492375106247017}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8619794660666436292}
-  m_RootOrder: 6
+  m_Father: {fileID: 4546862432434524283}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3275955467781204594
 MeshFilter:
@@ -422,6 +407,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3185791815532253115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264492375106247017}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1, y: 4.72, z: 4.0115285}
+  m_Center: {x: 0.104065835, y: 6.26, z: -0.05929035}
 --- !u!1 &3903121012144380247
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,9 +431,10 @@ GameObject:
   - component: {fileID: 4546862432434524283}
   - component: {fileID: 6648106635617241917}
   - component: {fileID: 9120750256736954985}
+  - component: {fileID: 5753970311744013726}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_03_Branch_LOD2
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +450,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4667047648355435151}
   m_Father: {fileID: 8619794660666436292}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -505,6 +505,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5753970311744013726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903121012144380247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45, y: 8.952096, z: 0.4}
+  m_Center: {x: 0.066167116, y: 4.2076807, z: -0.08450395}
 --- !u!1 &6032950671103315691
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6419305157352218247
 Transform:
   m_ObjectHideFlags: 0
@@ -605,7 +618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9148786921575430394
 Transform:
   m_ObjectHideFlags: 0
@@ -619,7 +632,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8619794660666436292}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1370397835901656809
 MeshFilter:
@@ -688,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5706083731242371395
 Transform:
   m_ObjectHideFlags: 0

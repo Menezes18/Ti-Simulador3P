@@ -20,6 +20,7 @@ public class VerificadorBuilding : MonoBehaviour
         sementeMelao = 18,
         sementePimenta = 20,
         sementeTrigo = 22,
+        machado = 6,
     }
 
 
@@ -59,11 +60,12 @@ public class VerificadorBuilding : MonoBehaviour
         
         if (System.Enum.IsDefined(typeof(Itens), numero))
         {
+            Debug.Log("esta");
             //Debug.Log("A");
             _buildBuilding.t = true;
             //_buildBuilding.ativarPreview();
             //_buildBuilding.Init();
-           // _buildBuilding.ativarPreview();
+           //_buildBuilding.ativarPreview();
            //TODO: Pensar em outra maneira, estou deixando o material invisivel
             _buildTools.invisivel = true;
             _buildTools.buildingAtivar = true;

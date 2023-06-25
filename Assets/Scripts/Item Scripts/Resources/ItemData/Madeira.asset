@@ -20,4 +20,5 @@ MonoBehaviour:
   GoldValue: 5
   ItemPrefab: {fileID: 156719443032939214, guid: 7f66f740072214843b042adda540ae4c, type: 3}
   ItemData: {fileID: 11400000, guid: 03e067dae4be4de429a640e5d935350d, type: 2}
-  _building: 1
+  _building: 0
+  durabilidade: 0

@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 7357381378909092134}
   - component: {fileID: 7917025469693339219}
   - component: {fileID: 6717190672359979483}
+  - component: {fileID: 1059195950}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_01_LOD3
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7357381378909092134
 Transform:
   m_ObjectHideFlags: 0
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1059195950
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510812683185662095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300006, guid: 02b163746cd243e4e94d69ebd2022573, type: 3}
 --- !u!1 &4353373013648216002
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,13 +110,14 @@ GameObject:
   - component: {fileID: 1324368882357429492}
   - component: {fileID: 4519081310969016457}
   - component: {fileID: 4702403825455877829}
+  - component: {fileID: 2016075011}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_01_LOD0
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1324368882357429492
 Transform:
   m_ObjectHideFlags: 0
@@ -168,6 +184,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2016075011
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353373013648216002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 02b163746cd243e4e94d69ebd2022573, type: 3}
 --- !u!1 &6920310244097489776
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,9 +209,10 @@ GameObject:
   - component: {fileID: 4118205216428947028}
   - component: {fileID: 1315778521539631707}
   - component: {fileID: 2067791817811057319}
+  - component: {fileID: 136633584}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_01_LOD1
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +283,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &136633584
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920310244097489776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 02b163746cd243e4e94d69ebd2022573, type: 3}
 --- !u!1 &7277532397692830830
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,13 +308,14 @@ GameObject:
   - component: {fileID: 6012742816174843415}
   - component: {fileID: 1217815773066492216}
   - component: {fileID: 1494493066138869656}
+  - component: {fileID: 556242651}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_01_LOD2
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6012742816174843415
 Transform:
   m_ObjectHideFlags: 0
@@ -336,6 +382,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &556242651
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7277532397692830830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 02b163746cd243e4e94d69ebd2022573, type: 3}
 --- !u!1 &8666899811911329076
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +409,7 @@ GameObject:
   - component: {fileID: 1989359025402323442}
   m_Layer: 0
   m_Name: IL3DN_Tree_Birch_01_OneMesh
-  m_TagString: Untagged
+  m_TagString: madeira
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +463,7 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6717190672359979483}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!136 &1989359025402323442
 CapsuleCollider:
   m_ObjectHideFlags: 0

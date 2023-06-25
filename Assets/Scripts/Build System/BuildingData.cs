@@ -12,6 +12,8 @@ public class BuildingData : ScriptableObject
     public GameObject Prefab;
     public Vector3 BuildingSize;
     public bool semente = false;
+    public bool plantacao = false;
+    
 }
 
 

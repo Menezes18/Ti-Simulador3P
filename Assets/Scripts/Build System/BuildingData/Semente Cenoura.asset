@@ -18,3 +18,4 @@ MonoBehaviour:
   Prefab: {fileID: 2211517109068419072, guid: df525c814de7bf64ea8f4150ef1004ac, type: 3}
   BuildingSize: {x: 1, y: 1, z: 1}
   semente: 0
+  plantacao: 1

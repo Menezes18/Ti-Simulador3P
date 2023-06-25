@@ -13,7 +13,7 @@ public class ChestInventory : InventoryHolder, IInteractable
     {
         var chestSaveData = new InventorySaveData(primaryInventorySystem, transform.position, transform.rotation);
 
-        SaveGameManager.data.chestDictionary.Add(GetComponent<UniqueID>().ID, chestSaveData);
+        //SaveGameManager.data.chestDictionary.Add(GetComponent<UniqueID>().ID, chestSaveData);
     }
 
     protected override void LoadInventory(SaveData data)

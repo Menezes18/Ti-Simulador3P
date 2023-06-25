@@ -92,13 +92,13 @@ public class PlayerLocomotion : MonoBehaviour
         {
             inAirTimer = 0;
             isGrounded = true;
-            Debug.Log("A");
+            
         }
         else
         {
             
             isGrounded = false;
-             Debug.Log("B");
+             
         }
 
     }

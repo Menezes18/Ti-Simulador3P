@@ -17,4 +17,5 @@ MonoBehaviour:
   GridSnapSize: 0
   Prefab: {fileID: 2211517109068419072, guid: 96b4fe9bdeff73745bfad20505836bf1, type: 3}
   BuildingSize: {x: 1, y: 1, z: 1}
-  semente: 0
+  semente: 1
+  plantacao: 1

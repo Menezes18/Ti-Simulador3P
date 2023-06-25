@@ -94,13 +94,13 @@ public class CicloDiaNoite : MonoBehaviour
         {
             lua.SetActive(true);
             sol.SetActive(false);
-            Debug.Log("noite");
+            //Debug.Log("noite");
         }
         else if (horarioAtual >= inicioDia && horarioAtual <= fimDia)
         {
             lua.SetActive(false);
             sol.SetActive(true);
-            Debug.Log("dia");
+            //Debug.Log("dia");
         }
 
 

@@ -28,7 +28,7 @@ public class BuildTools : MonoBehaviour
     private Quaternion _lastRotation;
 
     public BuildingData Data;
-    public bool buildingAtivar = false;
+    public bool buildingAtivar = true;
     public bool semente = false;
     public string objectName;
 
@@ -43,12 +43,12 @@ public class BuildTools : MonoBehaviour
     {
         InventoryItemData itemData = FindObjectOfType<InventoryItemData>();
         _camera = Camera.main;
+        _spawnedBuilding = new GameObject().AddComponent<Building>();
         ChoosePart(Data);
-        _spawnedBuilding.UpdateMaterial(_buildingMatInv);
-
-
         
+         _spawnedBuilding?.UpdateMaterial(_buildingMatInv);
     }
+
     public void SetData(BuildingData newData)
     {
         Data = newData;
@@ -83,18 +83,19 @@ public class BuildTools : MonoBehaviour
     {
         if (IsRayHittingSomething(out hitObjectTag))
         {
-            Debug.Log("Tag do objeto atingido: " + hitObjectTag);
+           // Debug.Log("Tag do objeto atingido: " + hitObjectTag);
         }
         else
         {
-            Debug.Log("Nenhum objeto atingido");
+            //Debug.Log("Nenhum objeto atingido");
         }
         ReadRaycastObjectNames();
         if(buildingAtivar)
         {
-        if(Keyboard.current.qKey.wasPressedThisFrame) _deleteModeEnabled = !_deleteModeEnabled;
-        if(_deleteModeEnabled) DeleteModeLogic();
-        else BuildModeLogic();
+        BuildModeLogic();
+        //if(Keyboard.current.qKey.wasPressedThisFrame) _deleteModeEnabled = !_deleteModeEnabled;
+        //if(_deleteModeEnabled) DeleteModeLogic();
+        //else BuildModeLogic();
         }
     }
     private bool IsRayHittingSomething(out string hitObjectTag)
@@ -138,56 +139,38 @@ public class BuildTools : MonoBehaviour
     
     private void DeleteModeLogic()
     {
-        if (IsRayHittingSomething(_deleteModeLayerMask, out RaycastHit hitInfo))
-        {
-            var delectedBuilding = hitInfo.collider.gameObject.GetComponentInParent<Building>();
 
-            Debug.Log("deleted " + hitInfo);
-
-        }
-        else
-        {
-            if(_targetBuilding != null && _targetBuilding.FlaggedForDelete)
-            {
-                _targetBuilding.RemoveDeleteFlag();
-                _targetBuilding = null;
-            }
-        }
-    
-    }  
-
-
-
-
+    }
 
 private void ReadRaycastObjectNames()
 {
     if (IsRayHittingSomething(_buildModeLayerMask, out RaycastHit hitInfo))
     {
         objectName = hitInfo.collider.gameObject.name;
-       //Debug.Log("Objeto olhado: " + objectName); 
+       Debug.Log("Objeto olhado: " + objectName); 
 
-        if(objectName == "Plant")
-        {
-            _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+        if(objectName == "Farming")
+         {
+             _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
         
-        }else
-        {
-            //TODO: Pensar em outra maneira, estou deixando o material invisivel
-            if(invisivel)
-            {
-                
-                _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
-            }
-            else
-            {
-            //_targetBuilding.BoxCollider();
+         }else
+         {
             
-            _spawnedBuilding.UpdateMaterial(_buildingMatInv);
+             //TODO: Pensar em outra maneira, estou deixando o material invisivel
+             if(invisivel)
+             {
+                
+                 _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+             }
+             else
+             {
+             //_targetBuilding.BoxCollider();
+            
+             _spawnedBuilding.UpdateMaterial(_buildingMatInv);
 
-            }
+             }
 
-        }
+         }
 
     }
 }
@@ -204,13 +187,17 @@ private void BuildModeLogic()
     if (_spawnedBuilding == null) return;
 
     PositionBuildingPreview();
+    if (Data.plantacao && !IsRayHittingSomething(LayerMask.GetMask("farming"), out RaycastHit hitInfo))
+    {
+        // A camada correta não está sendo atingida, portanto, não permita a plantação.
+        _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+        return;
+    }
    
 }
     private void PositionBuildingPreview()
     {
-       // _spawnedBuilding.UpdateMaterial(_spawnedBuilding.IsOverlapping ? _buildingMatNegative : _buildingMatPositive);
-        
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+    if (Keyboard.current.rKey.wasPressedThisFrame)
         {
             _spawnedBuilding.transform.Rotate(0, _rotateSnapAngle, 0);
             _lastRotation = _spawnedBuilding.transform.rotation;
@@ -220,55 +207,39 @@ private void BuildModeLogic()
         {
             var gridPosition = WordGrid.GridPositionFronWorldPosition3D(hitInfo.point, 1f);
             _spawnedBuilding.transform.position = gridPosition;
-           
+
+            // // Verifica se a data.plantacao é true e se o objeto atingido pertence à camada "farming".
+            // if (Data.plantacao && hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Farming"))
+            // {
+            //     _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
+            // }
+            // else
+            // {
+            //     _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+            //     return; // Impede a colocação do bloco se a condição não for atendida.
+            // }
+        if(objectName == "Farming")
+        {
             if (Mouse.current.leftButton.wasPressedThisFrame && !_spawnedBuilding.IsOverlapping)
             {
-              if(semente)
-              {
-                // if(_spawnedBuilding.AssignedData.semente == false)
-                // {
-                //     Debug.Log("AAaa");
-                //     _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
-                //     _spawnedBuilding.PlaceBuilding();
-                //     var dataCopy = _spawnedBuilding.AssignedData;
-                //    _spawnedBuilding = null;
-                //     Debug.Log(dataCopy);
-                //     ChoosePart(dataCopy);
-                //     buildingAtivar = true;
-                // }
-                if(_spawnedBuilding.AssignedData.semente == true)
-                {
-                if (objectName == "Terra"){
+                    
                         _spawnedBuilding.UpdateMaterial(_buildingMatPositive);
                         _spawnedBuilding.PlaceBuilding();
                         var dataCopy = _spawnedBuilding.AssignedData;
-                    _spawnedBuilding = null;
+                       _spawnedBuilding = null;
                         Debug.Log(dataCopy);
                         ChoosePart(dataCopy);
                         buildingAtivar = true;
-                        itemData.DecreaseDurability(1);
-                        //_hotbarDisplay.ClearSelectedItem(); //para limpar o item da hotbar
-                        
+                        _hotbarDisplay.ClearSelectedItem(); //para limpar o item da hotbar
 
-                    }
-                    else
-                    {
-                        _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
-                    }
-                }
-                //if(_spawnedBuilding.AssignedData.)
-              } 
-              else
-              {
-                 _spawnedBuilding.UpdateMaterial(_buildingMatInv);
-                    _spawnedBuilding.PlaceBuilding();
-                    var dataCopy = _spawnedBuilding.AssignedData;
-                   _spawnedBuilding = null;
-                    ChoosePart(dataCopy);
-                    buildingAtivar = true;
-              }
-                
+            }   
+            
+        } else 
+        {
+
+            _spawnedBuilding.UpdateMaterial(_buildingMatNegative);
+
+        }
             }
         }
     }
-}
