@@ -130,7 +130,7 @@ public class ConsertarTrigger : MonoBehaviour
                 Debug.Log("Faltam os seguintes itens no inventário: " + missingItemsString);
 
                 // Atualizar o texto da UI
-                uiText.text = "Faltam os seguintes itens no inventário: " + missingItemsString;
+                uiText.text = "Voce precisa de " + missingItemsString  + " para consertar";
 
                 // Exibir o texto da UI
                 uiText.gameObject.SetActive(true);

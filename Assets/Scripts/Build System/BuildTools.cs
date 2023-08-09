@@ -165,8 +165,14 @@ private void ReadRaycastObjectNames()
              else
              {
              //_targetBuilding.BoxCollider();
-            
+            if(!_spawnedBuilding )
+            {
+
+            }else
+            {
              _spawnedBuilding.UpdateMaterial(_buildingMatInv);
+                
+            }
 
              }
 

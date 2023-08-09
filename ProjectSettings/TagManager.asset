@@ -11,6 +11,10 @@ TagManager:
   - BuildingArea
   - ' Farming'
   - madeira
+  - Casa
+  - saircasa
+  - SairCasa
+  - CasaEntrar
   layers:
   - Default
   - TransparentFX

@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{fdaa2147-5027-67dc-7faf-798137e2e045}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoredHeaderCreator", "ColoredHeaderCreator.csproj", "{de04d854-315f-d813-bc5f-257a891024e0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColoredHeaderCreator.Editor", "ColoredHeaderCreator.Editor.csproj", "{4f3130af-0d6e-4f1e-bdcf-0ba6ef7d646d}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{8d40a9a2-030a-1bfc-15fa-48b86aa1a31e}"
 EndProject
 Global
@@ -16,10 +12,6 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{fdaa2147-5027-67dc-7faf-798137e2e045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{fdaa2147-5027-67dc-7faf-798137e2e045}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{de04d854-315f-d813-bc5f-257a891024e0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{de04d854-315f-d813-bc5f-257a891024e0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4f3130af-0d6e-4f1e-bdcf-0ba6ef7d646d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4f3130af-0d6e-4f1e-bdcf-0ba6ef7d646d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8d40a9a2-030a-1bfc-15fa-48b86aa1a31e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8d40a9a2-030a-1bfc-15fa-48b86aa1a31e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection

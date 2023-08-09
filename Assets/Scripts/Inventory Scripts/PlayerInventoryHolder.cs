@@ -16,7 +16,7 @@ public class PlayerInventoryHolder : InventoryHolder
     private void Start()
     {
         
-        SaveGameManager.data.playerInventory = new InventorySaveData(primaryInventorySystem);
+       // SaveGameManager.data.playerInventory = new InventorySaveData(primaryInventorySystem);
     }
 
     protected override void LoadInventory(SaveData data)
